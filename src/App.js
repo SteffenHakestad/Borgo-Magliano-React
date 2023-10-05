@@ -8,43 +8,71 @@ import Blog from "./pages/Blog.js";
 import Chat from "./pages/Chat.js";
 import Member from "./pages/Member.js";
 
+import { Route, Routes } from "react-router-dom";
+
 
 function App() {
-  console.log(window.location)
-  let Component
-  switch(window.location.pathname) {
-    case "/":
-      Component = <Home/>
-      break
-    case "/news":
-      Component = <News/>
-      break
-    case "/events":
-      Component = <Events/>
-      break
-    case "/gallery":
-      Component = <Gallery/>
-      break
-    case "/blog":
-      Component = <Blog/>
-      break
-    case "/chat":
-      Component = <Chat/>
-      break
-    case "/member":
-      Component = <Member/>
-      break
-    default:
-      Component = <Home/>
-
-      
-  }
   return (
     <>
       <Navbar />
-      {Component}
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/member" element={<Member />} />
+        </Routes>
+      </div>
     </>
   );
 }
 
 export default App;
+
+
+
+
+//OLD CODE, Keep for now
+// function App() {
+//   console.log(window.location)
+//   let Component
+//   switch(window.location.pathname) {
+//     case "/":
+//       Component = <Home/>
+//       break
+//     case "/news":
+//       Component = <News/>
+//       break
+//     case "/events":
+//       Component = <Events/>
+//       break
+//     case "/gallery":
+//       Component = <Gallery/>
+//       break
+//     case "/blog":
+//       Component = <Blog/>
+//       break
+//     case "/chat":
+//       Component = <Chat/>
+//       break
+//     case "/member":
+//       Component = <Member/>
+//       break
+//     default:
+//       Component = <Home/>
+
+      
+//   }
+//   return (
+//     <>
+//       <Navbar />
+//       {Component}
+//     </>
+//   );
+// }
+
+// export default App;

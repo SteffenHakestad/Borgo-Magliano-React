@@ -217,6 +217,41 @@ body{
 
 /* End of image slider. Home page*/
 
+/*Start of Upload Component*/
+.upload-button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--primary-gray);
+    font-size: 2rem;
+}
+.upload-button-container button{
+    border: none;
+    border-radius: 1rem;
+    padding: 0;
+    background: none;
+    transition: box-shadow 0.2s ease;
+    width: 60px;
+    height: 60px;
+}
+.upload-button-container button:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+
+}
+.upload-button-container img{
+    width: 60px;
+    height: 60px;
+}
+.upload-button-container p{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+/*End of Upload Component*/
 
 /*Start of News Component*/
 .news-container{
@@ -243,6 +278,36 @@ body{
 
 }
 /*End of News Component*/
+
+/*Start of News Upload Component*/
+.news-popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.news-popup-content{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+#news-headline,
+#news-text{
+    border: 2px solid var(--pastel-red);
+    border-radius: 10px;
+    margin-bottom: .8rem;
+    padding-left: .5rem;
+    width: 100%;
+    height: 3rem;
+    font-size: 1.2rem;
+}
+.news-popup-btn{
+    background-color: green;
+    
+}
+/*End of News Upload Component*/
+
 
 
 
@@ -419,48 +484,6 @@ body{
 
 }
 /*End of Gallery Component*/
-
-
-
-/*Start of Upload Component*/
-.upload-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    color: var(--primary-gray);
-    font-size: 2rem;
-}
-.upload-container button{
-    border: none;
-    border-radius: 1rem;
-    padding: 0;
-    background: none;
-    transition: box-shadow 0.2s ease;
-    width: 60px;
-    height: 60px;
-}
-.upload-container button:hover{
-    cursor: pointer;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-
-}
-.upload-container img{
-    width: 60px;
-    height: 60px;
-}
-
-/*End of Upload Component*/
-
-
-
-
-
-
-
-
-
 
 /*Start of Login/Register page*/
 #login-register-container{
