@@ -25,11 +25,11 @@ export default function UploadComponent({ UploadDescription, onNewsSubmit }) {
     return (
         <>
             <div className="upload-button-container">
-                <button onClick={handleOpenPopup}>
+                <button className="upload-button" onClick={handleOpenPopup}>
                     <img src={process.env.PUBLIC_URL + "/assets/icons/UploadButton.png"} alt="Upload" />
                 </button>
-                {isPopupVisible && <NewsUploadComponent onSubmit={handleSubmit} onClose={handleClosePopup} />}
                 <p>{UploadDescription}</p>
+                {isPopupVisible && <NewsUploadComponent onSubmit={handleSubmit} onClose={handleClosePopup} />}
             </div>
 
         </>

@@ -61,6 +61,10 @@ body{
     align-items: center;
     justify-content: right;
     gap: 2.5rem;
+    color: var(--primary-gray);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: .8rem;
 }
 #navbar ul li{
     cursor: pointer;
@@ -70,6 +74,10 @@ body{
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: .8rem;
+}
+#navbar ul li:visited{
+    color: var(--primary-gray);
+
 }
 #navbar ul li:hover{
     text-decoration: underline;
@@ -81,6 +89,9 @@ body{
     text-decoration: underline;
     text-decoration-color: var(--primary-gray);
     text-decoration-thickness: 3px;
+}
+.navbar-link{
+    color: var(--primary-gray);
 }
 /*End of Navbar*/
 
@@ -227,16 +238,16 @@ body{
     color: var(--primary-gray);
     font-size: 2rem;
 }
-.upload-button-container button{
+.upload-button{
     border: none;
     border-radius: 1rem;
     padding: 0;
-    background: none;
+    background: red;
     transition: box-shadow 0.2s ease;
     width: 60px;
     height: 60px;
 }
-.upload-button-container button:hover{
+.upload-button:hover{
     cursor: pointer;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 
@@ -261,7 +272,6 @@ body{
     border-radius: 1rem;
     border: var(--primary-gray) 1px solid;
 }
-
 .news-title-background{
     background: var(--pastel-gradient);
     border-radius: 1rem 1rem 0rem 0rem;
@@ -275,7 +285,7 @@ body{
     font-size: 1.5rem;
     font-weight: 400;
     padding: .5rem 1rem .5rem 1rem;
-
+    white-space: pre-line;
 }
 /*End of News Component*/
 
@@ -302,9 +312,31 @@ body{
     height: 3rem;
     font-size: 1.2rem;
 }
+#news-text{
+    height: 10rem;
+    max-width: 100%;
+}
+.news-popup-btn-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
 .news-popup-btn{
-    background-color: green;
+    background-color: var(--pastel-green);
+    color: var(--primary-gray);
+    border: 2px solid var(--primary-gray);
+    border-radius: 1rem;
+    padding: 0rem 1rem 0rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
     
+}
+.news-popup-btn:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+
 }
 /*End of News Upload Component*/
 
@@ -550,3 +582,25 @@ body{
 }
 
 /*End of Login/Register page*/
+
+/*Start of Dashboard page*/
+.dashboard-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    color: var(--primary-gray);
+}
+.upload-profile-pic-btn{
+    border-radius: 50%;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+}
+.upload-profile-pic-btn img{
+    width: 100%;
+    height: 100%;
+}
+/*End of Dashboard page*/
+

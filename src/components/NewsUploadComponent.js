@@ -24,7 +24,7 @@ export default function NewsUploadComponent({ onClose, onSubmit }) {
                     onChange={(e) => setHeadline(e.target.value)}
                 />
                 <label htmlFor="news-text">Nyhetstekst</label>
-                <input
+                <textarea
                     type="text"
                     name='news-text'
                     id="news-text"
@@ -33,8 +33,9 @@ export default function NewsUploadComponent({ onClose, onSubmit }) {
                     onChange={(e) => setNewsText(e.target.value)}
                 />
                 <div className='news-popup-btn-container'>
+                    <button className="news-popup-btn" onClick={onClose}>Avbryt</button>
                     <button className="news-popup-btn" onClick={handleSubmit}>Publiser</button>
-                    <button className="news-popup-btn" onClick={onClose}>Lukk</button>
+
                 </div>
 
             </div>

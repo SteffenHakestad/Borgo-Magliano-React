@@ -7,6 +7,7 @@ import Gallery from "./pages/Gallery.js";
 import Blog from "./pages/Blog.js";
 import Chat from "./pages/Chat.js";
 import Member from "./pages/Member.js";
+import Dashboard from "./pages/Dashboard.js";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/member" element={<Member />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </>

@@ -4,12 +4,13 @@ export default function Navbar() {
     return <nav id="navbar">
         <Link to="/home" id="navbar-title">Borgo Magliano</Link>
         <ul>
-            <CustomLink to="/news">Nyheter</CustomLink>
-            <CustomLink to="/events">Eventer</CustomLink>
-            <CustomLink to="/gallery">Galleri</CustomLink>
-            <CustomLink to="/blog">Blogg</CustomLink>
-            <CustomLink to="/chat">Chat</CustomLink>
-            <CustomLink to="/member">Medlem</CustomLink>
+            <CustomLink to="/news" className="navbar-link">Nyheter</CustomLink>
+            <CustomLink to="/events" className="navbar-link">Eventer</CustomLink>
+            <CustomLink to="/gallery" className="navbar-link">Galleri</CustomLink>
+            <CustomLink to="/blog" className="navbar-link">Blogg</CustomLink>
+            <CustomLink to="/chat" className="navbar-link">Chat</CustomLink>
+            <CustomLink to="/member" className="navbar-link">Medlem</CustomLink>
+            <CustomLink to="/dashboard" className="navbar-link">(temp)Dashboard</CustomLink>
 
         </ul>
     </nav>
