@@ -9,7 +9,7 @@ export default function Member() {
                         <div className="email-form">
                             <label htmlFor="email-input">E-post</label>
                             <br></br>
-                            <input type="email" name="email-input" id="email-input" placeholder="Eksempel@gmail.com" ></input>
+                            <input type="email" name="email-input" id="email-input" placeholder="Eksempel@gmail.com"></input>
                         </div>
                         <br></br>
                         <div className="password-form">
@@ -18,7 +18,6 @@ export default function Member() {
                             <input type="password" name="password-input" id="password-input" placeholder="Passord" ></input>
                         </div>
                         <input className="submit-button" type="submit" value="Logg inn"></input>
-
                     </form>
                 </div>
                 <div id="register-container">
