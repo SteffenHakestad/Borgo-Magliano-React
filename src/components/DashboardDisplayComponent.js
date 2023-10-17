@@ -1,13 +1,14 @@
-export default function DashboardDisplayComponent({FullName, Email, PhoneNumber, Address}) {
-    return <>
-        <div className="dashboard-inner-container">
-            <div className="dashboard-edit-exit-btn-container">
-                    <button className="dashboard-edit-btn" onClick={() => console.log('Edit')}>
-                        <img className="dashboard-edit-img" src={process.env.PUBLIC_URL + "/assets/icons/EditIcon.svg"} alt="Edit-Icon"/>
-                    </button>
-            </div>
+import React from "react";
 
-            <div className="dashboard-name-container"> 
+export default function DashboardDisplayComponent({ onEditClick, FullName, Email, PhoneNumber, Address }) {
+  return (
+    <div className="dashboard-inner-container">
+      <div className="dashboard-edit-exit-btn-container">
+        <button className="dashboard-edit-btn" onClick={onEditClick}>
+          <img className="dashboard-edit-img" src={process.env.PUBLIC_URL + "/assets/icons/EditIcon.svg"} alt="Edit-Icon" />
+        </button>
+      </div>
+      <div className="dashboard-name-container"> 
                 <img className="dashboard-user-info-img" src={process.env.PUBLIC_URL + "/assets/icons/ProfileIcon.svg"} alt="Profile-Icon" />
                 <p className="dashboard-user-info-text">{FullName}</p>
             </div>
@@ -23,7 +24,7 @@ export default function DashboardDisplayComponent({FullName, Email, PhoneNumber,
                 <img className="dashboard-user-info-img" src={process.env.PUBLIC_URL + "/assets/icons/HomeIcon.svg"} alt="Address-Icon" />
                 <p className="dashboard-user-info-text">{Address}</p>
             </div>
-            
-        </div>
-        </>
+      
+    </div>
+  );
 }
