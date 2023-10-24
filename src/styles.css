@@ -61,6 +61,10 @@ body{
     align-items: center;
     justify-content: right;
     gap: 2.5rem;
+    color: var(--primary-gray);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: .8rem;
 }
 #navbar ul li{
     cursor: pointer;
@@ -70,6 +74,10 @@ body{
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: .8rem;
+}
+#navbar ul li:visited{
+    color: var(--primary-gray);
+
 }
 #navbar ul li:hover{
     text-decoration: underline;
@@ -81,6 +89,9 @@ body{
     text-decoration: underline;
     text-decoration-color: var(--primary-gray);
     text-decoration-thickness: 3px;
+}
+.navbar-link{
+    color: var(--primary-gray);
 }
 /*End of Navbar*/
 
@@ -217,6 +228,41 @@ body{
 
 /* End of image slider. Home page*/
 
+/*Start of Upload Component*/
+.upload-button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--primary-gray);
+    font-size: 2rem;
+}
+.upload-button{
+    border: none;
+    border-radius: 1rem;
+    padding: 0;
+    background: red;
+    transition: box-shadow 0.2s ease;
+    width: 60px;
+    height: 60px;
+}
+.upload-button:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+
+}
+.upload-button-container img{
+    width: 60px;
+    height: 60px;
+}
+.upload-button-container p{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+/*End of Upload Component*/
 
 /*Start of News Component*/
 .news-container{
@@ -226,13 +272,12 @@ body{
     border-radius: 1rem;
     border: var(--primary-gray) 1px solid;
 }
-
 .news-title-background{
     background: var(--pastel-gradient);
     border-radius: 1rem 1rem 0rem 0rem;
 }
 .news-container h1{
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 400;
     padding: .5rem 1rem .5rem 1rem;
 }
@@ -240,9 +285,66 @@ body{
     font-size: 1.5rem;
     font-weight: 400;
     padding: .5rem 1rem .5rem 1rem;
-
+    white-space: pre-line;
 }
 /*End of News Component*/
+
+/*Start of News Upload Component*/
+.news-popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.news-popup-content{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+#news-headline,
+#news-text{
+    border: 2px solid var(--pastel-red);
+    border-radius: 10px;
+    margin-bottom: .8rem;
+    padding-left: .5rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: 3rem;
+    font-size: 1.2rem;
+}
+#news-text{
+    height: 10rem;
+    min-height: 5rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+}
+.news-popup-btn-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+.news-popup-btn{
+    background-color: var(--pastel-green);
+    color: var(--primary-gray);
+    border: 2px solid var(--primary-gray);
+    border-radius: 1rem;
+    padding: 0rem 1rem 0rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+}
+.news-popup-btn:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+
+}
+/*End of News Upload Component*/
+
 
 
 
@@ -296,7 +398,7 @@ body{
     background-color: white;
     color: var(--primary-gray);
     max-width: 100%;
-    margin: 1rem;
+    margin: 3rem;
     border-radius: 1rem;
     border: var(--primary-gray) 1px solid;
 }
@@ -333,46 +435,92 @@ body{
     font-weight: 400;
     padding: 1.5rem;
 }
-/*End of Blog Component*/
-
-
-
-
-/*Start of Upload Component*/
-.upload-container{
+.blog-image-outer-container{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    color: var(--primary-gray);
-    font-size: 2rem;
 }
-.upload-container button{
-    border: none;
+.blog-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 1rem;
+}
+.blog-image{
     border-radius: 1rem;
-    padding: 0;
-    background: none;
+    max-width: 55rem;
+    width: 55rem;
+    height: 35rem;
 }
-.upload-container button:hover{
-    cursor: pointer;
-    box-shadow: #434343 0px 0px 5px 5px 0.5;
+/*End of Blog Component*/
+
+
+/*Start of Gallery Component*/
+.gallery-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-.upload-container img{
+.gallery-component-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 2rem;
+    background-color: white;
+    color: var(--primary-gray);
+    max-width: 45%;
+    width: 45%;
+    border-radius: 1rem;
+    border: var(--primary-gray) 1px solid;
+}
+
+.gallery-header-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: var(--pastel-gradient);
+    border-bottom: var(--primary-gray) 1px solid;
+    border-radius: 1rem 1rem 0rem 0rem;
+    padding: .5rem 1.5rem .5rem 1.5rem;
+}
+
+.gallery-profile-picture-frame {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--pastel-green);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.75);
+}
+.gallery-profile-picture{
     width: 60px;
     height: 60px;
+    border-radius: 50%;
 }
+.gallery-profile-name{
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-left: 1.5rem;
+}
+.gallery-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;}
+.gallery-image{
+    border-radius: 1rem;
+    max-width: 50rem;
 
-/*End of Upload Component*/
-
-
-
-
-
-
-
-
-
+}
+/*End of Gallery Component*/
 
 /*Start of Login/Register page*/
 #login-register-container{
@@ -439,3 +587,109 @@ body{
 }
 
 /*End of Login/Register page*/
+
+/*Start of Dashboard page*/
+.dashboard-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    color: var(--primary-gray);
+}
+#upload-profile-pic-container{
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.upload-profile-pic-btn{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    width: 120px;
+    height: 120px;
+}
+.upload-profile-pic-btn img{
+    width: 100%;
+    height: 100%;
+}
+#edit-profilepic-hover{
+    object-fit: fill;
+    top: 10px;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-color: var(--pastel-green);
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0;
+
+    transition: opacity 0.5s ease-in-out;
+}
+.upload-profile-pic-btn:hover #edit-profilepic-hover{
+    opacity: 0.9;
+    transition: .5s;
+}
+
+
+
+
+.dashboard-inner-container{
+    width: 20rem;
+}
+.dashboard-name-container,
+.dashboard-email-container,
+.dashboard-phone-container,
+.dashboard-address-container{
+    display: flex;
+    margin-top: 1rem;
+}
+.dashboard-user-info-text{
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-left: 1rem;
+}
+.dashboard-user-info-img{
+    width: 3rem;
+
+}
+.dashboard-edit-btn{
+    border: none;
+    cursor: pointer;
+    float: right;
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+
+}
+.dashboard-edit-img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.dashboard-edit-exit-btn-container{
+    width: 100%;
+    height: 3rem;
+}
+
+
+
+.dashboard-input{
+    border: 2px solid var(--pastel-red);
+    border-radius: 10px;
+    padding-left: .5rem;
+    margin-left: .5rem;
+    width: 100%;
+    height: 3rem;
+    font-size: 1.2rem;
+}
+
+/*End of Dashboard page*/
+
