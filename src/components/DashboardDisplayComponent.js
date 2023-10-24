@@ -8,7 +8,7 @@ export default function DashboardDisplayComponent({ onEditClick, FullName, Email
           <img className="dashboard-edit-img" src={process.env.PUBLIC_URL + "/assets/icons/EditIcon.svg"} alt="Edit-Icon" />
         </button>
       </div>
-      <div className="dashboard-name-container"> 
+      <div className="dashboard-name-container">
                 <img className="dashboard-user-info-img" src={process.env.PUBLIC_URL + "/assets/icons/ProfileIcon.svg"} alt="Profile-Icon" />
                 <p className="dashboard-user-info-text">{FullName}</p>
             </div>

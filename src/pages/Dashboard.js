@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DashboardDisplayComponent from "../components/DashboardDisplayComponent";
 import DashboardEditComponent from "../components/DashboardEditComponent";
+import UploadProfilePicComponent from "../components/UploadProfilePicComponent";
 
 export default function Dashboard() {
   const [isEditing, setIsEditing] = useState(false);
@@ -13,11 +14,10 @@ export default function Dashboard() {
     <>
       <div className="header">Min Profil</div>
       <div className="dashboard-container">
-        <button className="upload-profile-pic-btn">
-          <img src={process.env.PUBLIC_URL + "/assets/icons/AnonProfilePicture.png"} alt="Profile-Picture" />
-          <img id="edit-profilepic-hover" src={process.env.PUBLIC_URL + "/assets/icons/EditProfilePic.png"} alt="Edit-Icon" />
-        </button>
 
+        <UploadProfilePicComponent PathToProfilePic={"/assets/icons/AnonProfilePicture.png"}/>
+        
+        {/* Checks if the user clicked the edit button/stop editing button. Display the correct component based on the result. */}
         {isEditing ? (
           <DashboardEditComponent 
           onExitEdit={handleEditClick} />

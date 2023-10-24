@@ -21,7 +21,7 @@ export default function DashboardEditComponent({ onExitEdit }) {
                 <img className="dashboard-user-info-img" src={process.env.PUBLIC_URL + "/assets/icons/HomeIcon.svg"} alt="Address-Icon" />
                 <input id="dashboard-address-input" className="dashboard-input" placeholder="Adresse/Hus nummer"></input>
             </div>
-            <input className="submit-button" type="submit" value="Lagre Endringer"></input>
+            <input className="submit-button" type="submit" value="Lagre Endringer (Send to DB)"></input>
         </form>
     </div>
   );
