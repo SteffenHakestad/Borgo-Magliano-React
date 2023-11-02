@@ -30,6 +30,8 @@ body{
     border-width: 0px 0px 15px 0px;
     border-style: solid;
     margin-bottom: 1.5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 /*End of every page header*/
 /*Start of Navbar*/
@@ -55,6 +57,12 @@ body{
     width: fit-content;
     line-height: 1;
     cursor: pointer;
+}
+@media (max-width: 1350px){
+    #navbar-title{
+        font-size: 4rem;
+        margin-top: 1rem;
+    }
 }
 #navbar ul{
     display: flex;
@@ -332,7 +340,7 @@ body{
     background-color: var(--pastel-green);
     color: var(--primary-gray);
     border: 2px solid var(--primary-gray);
-    border-radius: 1rem;
+    border-radius: .5rem;
     padding: 0rem 1rem 0rem 1rem;
     font-size: 1.5rem;
     cursor: pointer;
@@ -598,7 +606,6 @@ body{
     color: var(--primary-gray);
 }
 #upload-profile-pic-container{
-    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -630,7 +637,6 @@ body{
     pointer-events: none;
     border-radius: 50%;
     opacity: 0;
-
     transition: opacity 0.5s ease-in-out;
 }
 .upload-profile-pic-btn:hover #edit-profilepic-hover{
