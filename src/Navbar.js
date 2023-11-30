@@ -11,7 +11,6 @@ export default function Navbar() {
             <CustomLink to="/chat" className="navbar-link">Chat</CustomLink>
             <CustomLink to="/member" className="navbar-link">Medlem</CustomLink>
             <CustomLink to="/dashboard" className="navbar-link">(temp)Dashboard</CustomLink>
-
         </ul>
     </nav>
 }

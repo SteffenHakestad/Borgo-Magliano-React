@@ -3,7 +3,8 @@ import React, { useState } from "react";
 export default function UploadComponent({ UploadDescription }) {
   const [isPopupVisible, setPopupVisibility] = useState(false);
   const [headline, setHeadline] = useState("");
-  const [newsText, setnewsText] = useState("");
+  const [blogText, setblogText] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const togglePopup = () => {
     setPopupVisibility(!isPopupVisible);
@@ -13,23 +14,28 @@ export default function UploadComponent({ UploadDescription }) {
     setHeadline(e.target.value);
   };
 
-  const handlenewsTextChange = (e) => {
-    setnewsText(e.target.value);
+  const handleblogTextChange = (e) => {
+    setblogText(e.target.value);
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedImage(file);
+  };
 
   const handleSubmit = (e) => {
-    e.prnewsDefault();
+    e.prblogDefault();
 
     // Here you can perform the logic to post data to the database
-    // Use 'headline', 'newsText', and 'selectedImage' states for the data
+    // Use 'headline', 'blogText', and 'selectedImage' states for the data
 
     // For example:
-    console.log("Posting data to the database:", { headline, newsText });
+    console.log("Posting data to the database:", { headline, blogText, selectedImage });
 
     // Reset form values and close the popup
     setHeadline("");
-    setnewsText("");
+    setblogText("");
+    setSelectedImage(null);
     togglePopup();
   };
 
@@ -43,26 +49,34 @@ export default function UploadComponent({ UploadDescription }) {
       </div>
 
       {isPopupVisible && (
-        <div className="news-popup">
+        <div className="blog-popup">
           <form onSubmit={handleSubmit}>
-            <div className="news-popup-content">
-              <label htmlFor="news-headline">Overskrift</label>
+            <div className="blog-popup-content">
+              <label htmlFor="blog-headline">Overskrift</label>
               <input
                 type="text"
-                name="news-headline"
-                id="news-headline"
+                name="blog-headline"
+                id="blog-headline"
                 placeholder="Overskrift"
                 value={headline}
                 onChange={handleHeadlineChange}
               />
-              <label htmlFor="news-text">Nyhetsinnlegg</label>
+              <label htmlFor="blog-text">blog Beskrivelse</label>
               <textarea
                 type="text"
-                name="news-text"
-                id="news-text"
-                placeholder="Nyhetsinnlegg"
-                value={newsText}
-                onChange={handlenewsTextChange}
+                name="blog-text"
+                id="blog-text"
+                placeholder="blog Beskrivelse"
+                value={blogText}
+                onChange={handleblogTextChange}
+              />
+              <label htmlFor="blog-image">Velg bilde</label>
+              <input
+                type="file"
+                accept="image/*"
+                name="blog-image"
+                id="blog-image"
+                onChange={handleImageChange}
               />
               <div className="popup-btn-container">
                 <button className="popup-btn" onClick={togglePopup}>

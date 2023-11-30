@@ -1,11 +1,11 @@
-import UploadComponent from "../components/UploadComponent";
 import BlogComponent from "../components/BlogComponent";
+import BlogUploadComponent from "../components/BlogUploadComponent";
 
 export default function Blog() {
     return (
         <>
         <div className="header">Blogg</div>
-        <UploadComponent UploadDescription="Her kan du skrive blogg innlegg som blir synlig for andre medlemer"/>
+        <BlogUploadComponent UploadDescription="Her kan du skrive blogg innlegg som blir synlig for andre medlemer"/>
         <BlogComponent ProfileName={"Ola Normann"} 
                         ProfilePicture={'/assets/images/TempProfilePic.png'} 
                         BlogText={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie justo tortor, nec interdum orci rhoncus id. Nulla euismod nibh ac turpis ullamcorper dignissim. Etiam congue non enim quis aliquam. Cras elementum pulvinar euismod. Integer lorem metus, posuere nec pulvinar in, placerat nec orci. Cras ultrices, tortor vitae rutrum venenatis, dolor lectus mollis arcu, vel venenatis nulla augue a risus. Vivamus massa metus, maximus sit amet justo nec, rutrum efficitur augue. Suspendisse commodo lorem nec urna vehicula, in elementum justo tincidunt. Nullam mollis nisl neque, et molestie orci placerat ut."}
@@ -20,3 +20,5 @@ export default function Blog() {
 
     )
 }
+
+
