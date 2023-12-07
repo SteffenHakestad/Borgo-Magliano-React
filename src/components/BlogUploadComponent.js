@@ -61,12 +61,12 @@ export default function UploadComponent({ UploadDescription }) {
                 value={headline}
                 onChange={handleHeadlineChange}
               />
-              <label htmlFor="blog-text">blog Beskrivelse</label>
+              <label htmlFor="blog-text">Blogg innlegg</label>
               <textarea
                 type="text"
                 name="blog-text"
                 id="blog-text"
-                placeholder="blog Beskrivelse"
+                placeholder="Blogg innlegg"
                 value={blogText}
                 onChange={handleblogTextChange}
               />
