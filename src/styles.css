@@ -332,6 +332,9 @@ body{
     display: flex;
     justify-content: center;
     width: 100%;
+    min-width: 400px;
+    max-width: 1300px;
+
 }
 .news-popup-content,
 .event-popup-content,
@@ -464,7 +467,7 @@ body{
     padding: 1rem 1.5rem 1rem 1.5rem;
     border-radius: 1rem 1rem 0rem 0rem;
 }
-.profile-picture-frame {
+.blog-profile-picture-frame {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -488,26 +491,66 @@ body{
 .blog-text{
     font-size: 1.5rem;
     font-weight: 400;
-    padding: 1.5rem;
+    margin: 1.5rem;
 }
-.blog-image-outer-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-.blog-image-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    padding: 1rem;
-}
+
 .blog-image{
+    margin: 1rem;
     border-radius: 1rem;
-    max-width: 55rem;
-    width: 55rem;
-    height: 35rem;
+    max-width: fit-content;
+    max-height: fit-content;
+    object-fit: cover;
+}
+
+
+
+@media(max-width: 1000px){
+    .blog-profile-name{
+        font-size: 2.5rem;
+    }
+    .blog-text{
+        font-size: 1.2rem;
+        margin: 1.2rem;
+    }
+    .blog-profile-picture-frame{
+        width: 70px;
+        height: 70px;
+    }
+    .blog-profile-picture{
+        width: 60px;
+        height: 60px;
+    }
+    .blog-container{
+        margin: 1rem;
+    }
+    .blog-image{
+        margin: 0.8rem;
+    }
+    
+}
+@media(max-width: 500px){
+    .blog-profile-name{
+        font-size: 1.5rem;
+    }
+    .blog-text{
+        font-size: .9rem;
+        margin: .5rem;
+    }
+    .blog-profile-picture-frame{
+        width: 60px;
+        height: 60px;
+    }
+    .blog-profile-picture{
+        width: 50px;
+        height: 50px;
+    }
+    .blog-container{
+        margin: .8rem;
+    }
+    .blog-image{
+        margin: 0.5rem;
+    }
+    
 }
 /*End of Blog Component*/
 
@@ -626,8 +669,9 @@ body{
   .gallery-popup-content {
     width: 80%;
     max-width: 80%;
-    background: var(--pastel-gradient);
-    border: var(--primary-gray) 1px solid;
+    /* background: var(--pastel-gradient); */
+    background-color: white;
+    border: var(--primary-gray) 2px solid;
     padding: 1rem;
     border-radius: 2rem;
     margin: 2rem;
@@ -652,14 +696,24 @@ body{
 /*Start of Login/Register page*/
 #login-register-container{
     display: flex;
+    justify-content: center;
     width: 100%;
     background-color: var(--primary-background-gray);
     padding: 2rem;
     color: var(--primary-gray);
+    flex-direction: row;
 }
+@media (max-width: 800px){
+    #login-register-container{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 #login-register-container h3{
     font-size: 2rem;
     font-weight: 400;
+    margin-top: 1rem;
 }
 #login-container,
 #register-container{
@@ -668,8 +722,7 @@ body{
     align-items: center;
     width: 50%;
     background-color: var(--primary-background-gray);
-    height: 300px;
-    padding: 0rem 10rem 0rem 10rem;
+    padding: 0rem 3rem 0rem 3rem;
 }
 #login-container form,
 #register-container form{
@@ -677,6 +730,8 @@ body{
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    min-width: 300px;
+
 }
 #login-container label,
 #register-container label{
