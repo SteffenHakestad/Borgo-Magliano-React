@@ -24,7 +24,6 @@ export default function UploadComponent({ UploadDescription }) {
   };
 
   const handleSubmit = (e) => {
-    e.prblogDefault();
 
     // Here you can perform the logic to post data to the database
     // Use 'headline', 'blogText', and 'selectedImage' states for the data

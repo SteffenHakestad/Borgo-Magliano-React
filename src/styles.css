@@ -683,15 +683,24 @@ body{
     object-fit: contain;
     border-radius: 2rem;
   }
-  
-  
-
-
-
-
-
-
 /*End of Gallery Component*/
+
+
+
+
+
+
+
+
+/*Start of Chat Page*/
+#chat-outer-container{
+    height: 600px;
+    margin: 0rem  2rem 0rem 2rem;
+}
+.chat-container{
+    border-radius: 1rem;
+}
+/*End of Chat Page*/
 
 /*Start of Login/Register page*/
 #login-register-container{

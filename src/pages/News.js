@@ -1,5 +1,6 @@
 import React from 'react';
 import NewsUploadComponent from '../components/NewsUploadComponent';
+import NewsComponent from '../components/NewsComponent';
 
 
 export default function News() {
@@ -8,6 +9,10 @@ export default function News() {
             <div className="header">Nyheter</div>
             <NewsUploadComponent
                 UploadDescription="Her kan du skrive nyhetsinnlegg (admin only)"
+            />
+            <NewsComponent
+                NewsTitle={"News Headline"}
+                NewsDescription={"News Text"}
             />
         </>
     );
