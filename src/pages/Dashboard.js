@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import DashboardDisplayComponent from "../components/DashboardDisplayComponent";
 import DashboardEditComponent from "../components/DashboardEditComponent";
-import UploadProfilePicComponent from "../components/UploadProfilePicComponent";
 
 export default function Dashboard() {
   const [isEditing, setIsEditing] = useState(false);
@@ -15,21 +14,29 @@ export default function Dashboard() {
       <div className="header">Min Profil</div>
       <div className="dashboard-container">
 
-        <UploadProfilePicComponent PathToProfilePic={"/assets/icons/AnonProfilePicture.png"}/>
         
         {/* Checks if the user clicked the edit button/stop editing button. Display the correct component based on the result. */}
         {isEditing ? (
           <DashboardEditComponent 
-          onExitEdit={handleEditClick} />
+          onExitEdit={handleEditClick} 
+          PathToProfilePic={"/assets/icons/AnonProfilePicture.png"}/>
         ) : (
           <DashboardDisplayComponent 
           FullName={"Get from DB"}
           Email={"Get from DB"}
           PhoneNumber={"Get from DB"}
           Address={"Get from DB"}
-          onEditClick={handleEditClick} />
+          onEditClick={handleEditClick}
+          PathToProfilePic={"/assets/icons/AnonProfilePicture.png"} />
         )}
       </div>
     </>
   );
 }
+
+
+
+
+//OLD CODE, Keep for now, import and add component to document flow
+//import UploadProfilePicComponent from "../components/UploadProfilePicComponent";
+//<UploadProfilePicComponent PathToProfilePic={"/assets/icons/AnonProfilePicture.png"}/>
