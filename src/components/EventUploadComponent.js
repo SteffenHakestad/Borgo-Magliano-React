@@ -26,11 +26,18 @@ export default function UploadComponent({ UploadDescription }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Here you can perform the logic to post data to the database
+
+    // Create new FormData object and append the form values
     // Use 'headline', 'eventText', and 'selectedImage' states for the data
 
-    // For example:
-    console.log("Posting data to the database:", { headline, eventText, selectedImage });
+    const eventFormData = new FormData();
+      eventFormData.append("headline", headline);
+      eventFormData.append("eventText", eventText);
+      eventFormData.append("selectedImage", selectedImage);
+    
+      // For now, console log the form data values
+    console.log("Event Form Data: ", eventFormData);
+
 
     // Reset form values and close the popup
     setHeadline("");

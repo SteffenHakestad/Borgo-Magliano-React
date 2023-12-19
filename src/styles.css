@@ -33,6 +33,22 @@ body{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+/*long-header is special header for logg inn/ registrer*/
+@media (max-width: 800px){
+    .long-header{
+        font-size: 4rem;
+    }
+}
+@media (max-width: 600px){
+    .long-header{
+        font-size: 3rem;
+    }
+}
+@media (max-width: 450px){
+    .long-header{
+        font-size: 2rem;
+    }
+}
 /*End of every page header*/
 /*Start of Navbar*/
 #navbar{
@@ -700,6 +716,10 @@ body{
 .chat-container{
     border-radius: 1rem;
 }
+.message-input{
+    color: var(--primary-gray);
+    background-color: red;
+}
 /*End of Chat Page*/
 
 /*Start of Login/Register page*/
@@ -723,6 +743,7 @@ body{
     font-size: 2rem;
     font-weight: 400;
     margin-top: 1rem;
+    min-width: 150px;
 }
 #login-container,
 #register-container{
@@ -731,7 +752,7 @@ body{
     align-items: center;
     width: 50%;
     background-color: var(--primary-background-gray);
-    padding: 0rem 3rem 0rem 3rem;
+    padding: 0rem 10rem 0rem 10rem;
 }
 #login-container form,
 #register-container form{
@@ -750,8 +771,10 @@ body{
 #password-input,
 #repeat-password-input,
 #email-input,
-#firstname-input,
-#lastname-input{
+#full-name-input,
+#lastname-input,
+#li-email-input,
+#li-password-input{
     border: 2px solid var(--pastel-red);
     border-radius: 10px;
     margin-bottom: .8rem;
@@ -834,6 +857,7 @@ body{
 .dashboard-phone-container,
 .dashboard-address-container{
     display: flex;
+    justify-content: center;
     margin-top: 1rem;
 }
 .dashboard-user-info-text{
@@ -868,6 +892,11 @@ body{
     width: 100%;
     height: 3rem;
     font-size: 1.2rem;
+}
+.profile-pic-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 /*End of Dashboard page*/
 

@@ -19,13 +19,17 @@ export default function UploadComponent({ UploadDescription }) {
 
 
   const handleSubmit = (e) => {
-    e.prnewsDefault();
+    e.preventDefault();
 
-    // Here you can perform the logic to post data to the database
+    // Create new FormData object and append the form values
     // Use 'headline', 'newsText', and 'selectedImage' states for the data
+    const newsFormData = new FormData();
+      newsFormData.append("headline", headline);
+      newsFormData.append("newsText", newsText);
+    
+    // For now, console log the form data values
+    console.log("News Form Data: ", newsFormData);
 
-    // For example:
-    console.log("Posting data to the database:", { headline, newsText });
 
     // Reset form values and close the popup
     setHeadline("");

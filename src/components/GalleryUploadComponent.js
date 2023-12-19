@@ -17,11 +17,14 @@ export default function UploadComponent({ UploadDescription }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Here you can perform the logic to post data to the database
-    // Use 'headline', 'eventText', and 'selectedImage' states for the data
+    // Create new FormData object and append the form values
+    const galleryFormData = new FormData();
+      galleryFormData.append("selectedImage", selectedImage);
 
-    // For example:
-    console.log("Posting data to the database:", { selectedImage });
+    // For now, console log the form data values
+    console.log("Gallery Form Data: ", galleryFormData);
+
+
 
     // Reset form values and close the popup
     setSelectedImage(null);

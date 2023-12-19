@@ -23,13 +23,19 @@ export default function UploadComponent({ UploadDescription }) {
     setSelectedImage(file);
   };
 
+  // Submit to the API/Backend
   const handleSubmit = (e) => {
-
-    // Here you can perform the logic to post data to the database
+    e.preventDefault();
+    
+    // Create new FormData object and append the form values
     // Use 'headline', 'blogText', and 'selectedImage' states for the data
+    const blogFormData = new FormData();
+      blogFormData.append("headline", headline);
+      blogFormData.append("blogText", blogText);
+      blogFormData.append("selectedImage", selectedImage);
 
-    // For example:
-    console.log("Posting data to the database:", { headline, blogText, selectedImage });
+    // For now, console log the form data values
+    console.log("Blog Form Data: ", blogFormData);
 
     // Reset form values and close the popup
     setHeadline("");

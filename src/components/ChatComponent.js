@@ -1,4 +1,5 @@
-import styles from '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
+import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css'; 
+//^^^^import styles from '@' gave a warning, removed "styles" keyword. Add it back if you encounter problems.
 import {
     MainContainer,
     Sidebar,
@@ -13,7 +14,7 @@ import {
   } from "@chatscope/chat-ui-kit-react";
 
 
-export default function ChatComponent({}) {
+export default function ChatComponent() {
     function SendMessage(e) {
         console.log("Chat Message: " + e);
     }
@@ -39,13 +40,19 @@ export default function ChatComponent({}) {
                             sentTime: "just now",
                             direction: "incoming",
                             position: "single",
-                        }
-                    
-                    }>
+                        }}>
+                    </Message>
 
+                    <Message model={{
+                            message: "Hei min venn",
+                            sender: "Ola Nordmann",
+                            sentTime: "just now",
+                            direction: "outgoing",
+                            position: "single",
+                        }}>
                     </Message>
                 </MessageList>
-                <MessageInput placeholder="Skriv en melding" attachButton={false} onSend={SendMessage}/>
+                <MessageInput onSend={SendMessage} className="message-input" placeholder="Skriv en melding" attachButton={false}/>
             </ChatContainer>
         </MainContainer>
         </div>
