@@ -1,5 +1,6 @@
 import React from 'react';
 import Linkify from 'react-linkify';
+//Using linkify to make links in text clickable
 
 export default function NewsComponent({ NewsTitle, NewsDescription }) {
     return (

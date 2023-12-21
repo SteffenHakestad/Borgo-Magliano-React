@@ -10,7 +10,6 @@ export default function Navbar() {
             <CustomLink to="/blog" className="navbar-link">Blogg</CustomLink>
             <CustomLink to="/chat" className="navbar-link">Chat</CustomLink>
             <CustomLink to="/member" className="navbar-link">Medlem</CustomLink>
-            <CustomLink to="/dashboard" className="navbar-link">(temp)Dashboard</CustomLink>
         </ul>
     </nav>
 }
@@ -24,3 +23,4 @@ function CustomLink ({ to, children, ...props}) {
         </li>
     )
 }
+//<CustomLink to="/dashboard" className="navbar-link">(temp)Dashboard</CustomLink>
