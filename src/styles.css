@@ -15,6 +15,11 @@ body{
     --pastel-red: #FFCFC2;
     --pastel-gradient: linear-gradient(90deg, rgba(255,207,194,1) 0%, rgba(211,242,234,1) 100%);
 }
+/*This container is placeholder for navbar since navbar is fixed*/
+.container{
+    padding-top: 7rem;
+
+}
 /*Start of every page header*/
 .header{
     font-size: 5rem;
@@ -60,6 +65,9 @@ body{
     padding: 0rem 2rem 0rem 2rem;
     flex-direction: row;
     border-bottom: var(--primary-gray) 1px solid;
+    position: fixed;
+    transition: height 0.2s ease-in-out;
+    z-index: 1000;
 }
 #navbar-title{
     display: flex;
@@ -73,6 +81,7 @@ body{
     width: fit-content;
     line-height: 1;
     cursor: pointer;
+    transition: font-size 0.2s ease-in-out;
 }
 
 #navbar ul{
@@ -142,6 +151,9 @@ body{
     #navbar ul{
         gap: 1.2rem;
     }
+    #navbar ul li.active{
+        text-decoration-thickness: 2px;
+    }
 }
 @media (max-width: 800px){
     #navbar{
@@ -158,6 +170,63 @@ body{
     }
     #navbar ul{
         gap: .8rem;
+    }
+    #navbar ul li.active{
+        text-decoration-thickness: 1px;
+    }
+}
+/*Below 600px start using mobile navbar*/
+#toggle-button{
+    display: none;
+    position: relative;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 3.5rem;
+    height: 100%;
+    max-height: 5rem;
+    padding: 1rem 0rem 1rem 0rem;
+    margin-top: 1rem;
+    transition: margin-top 0.2s ease-in-out;
+
+}
+.bar{
+    display: block;
+    background-color: var(--pastel-red);
+    height: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: solid var(--primary-gray) 1px;
+
+}
+#navbar-mobile-links{
+    display: none;
+    background-color: #fdc613;
+    position: fixed;
+    top: 7rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    transition: top 0.3s ease-in-out;
+    
+}
+
+@media (max-width: 600px){
+    #navbar{
+        height: 4rem;
+        padding: 0rem 2rem 0rem .5rem;
+
+    }
+    #navbar-title{
+        font-size: 3.2rem;
+        margin-top: 0rem;
+    }
+    #navbar ul li{
+        display: none;
+    }
+    #toggle-button{
+        display: flex;
     }
 }
 /*End of Navbar*/
