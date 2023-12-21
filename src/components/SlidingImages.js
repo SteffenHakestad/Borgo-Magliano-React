@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const SlidingImages = () => {
   const [counter, setCounter] = useState(1);
-  const pauseDuration = 5000;
+  // const pauseDuration = 5000;
 
   const handleRadioChange = (index) => {
     setCounter(index);
