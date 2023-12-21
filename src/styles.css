@@ -74,15 +74,7 @@ body{
     line-height: 1;
     cursor: pointer;
 }
-@media (max-width: 1350px){
-    #navbar-title{
-        font-size: 4rem;
-        margin-top: 1rem;
-    }
-    #navbar ul li{
-        font-size: .5rem;
-    }
-}
+
 #navbar ul{
     display: flex;
     align-items: center;
@@ -102,6 +94,7 @@ body{
     text-decoration-color: transparent;
     text-underline-offset: .8rem;
 }
+
 #navbar ul li:visited{
     color: var(--primary-gray);
 
@@ -119,6 +112,53 @@ body{
 }
 .navbar-link{
     color: var(--primary-gray);
+}
+@media (max-width: 1350px){
+    #navbar{
+        height: 6rem;
+    }
+    #navbar-title{
+        font-size: 5rem;
+        margin-top: -.3rem;
+    }
+    #navbar ul li{
+        font-size: 2rem;
+    }
+    #navbar ul{
+        gap: 1.8rem;
+    }
+}
+@media (max-width: 1000px){
+    #navbar{
+        height: 5rem;
+    }
+    #navbar-title{
+        font-size: 4rem;
+        margin-top: 0rem;
+    }
+    #navbar ul li{
+        font-size: 1.5rem;
+    }
+    #navbar ul{
+        gap: 1.2rem;
+    }
+}
+@media (max-width: 800px){
+    #navbar{
+        height: 4rem;
+        padding: 0rem 2rem 0rem .5rem;
+
+    }
+    #navbar-title{
+        font-size: 3.2rem;
+        margin-top: 0rem;
+    }
+    #navbar ul li{
+        font-size: 1rem;
+    }
+    #navbar ul{
+        gap: .8rem;
+    }
 }
 /*End of Navbar*/
 
@@ -772,7 +812,6 @@ body{
 #repeat-password-input,
 #email-input,
 #full-name-input,
-#lastname-input,
 #li-email-input,
 #li-password-input{
     border: 2px solid var(--pastel-red);
