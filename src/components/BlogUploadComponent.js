@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 export default function UploadComponent({ UploadDescription }) {
   const [isPopupVisible, setPopupVisibility] = useState(false);
@@ -16,6 +16,11 @@ export default function UploadComponent({ UploadDescription }) {
 
   const handleblogTextChange = (e) => {
     setblogText(e.target.value);
+  };
+
+  const fileInputRef = useRef(null);
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
   };
 
   const handleImageChange = (e) => {
@@ -82,7 +87,17 @@ export default function UploadComponent({ UploadDescription }) {
                 name="blog-image"
                 id="blog-image"
                 onChange={handleImageChange}
+                style={{ display: "none" }}
+                ref={fileInputRef}
               />
+
+              {/*Styled upload file button. Calls button above*/}
+              <button className="upload-image-button" type="button" onClick={handleButtonClick}>Last opp bilde</button>
+              {/*Gets the file text from the type="file" button*/}
+              <div className="selected-file-text">
+                  {selectedImage ? selectedImage.name : "Ingen fil valgt"}
+              </div>
+
               <div className="popup-btn-container">
                 <button className="popup-btn" onClick={togglePopup}>
                   Avbryt

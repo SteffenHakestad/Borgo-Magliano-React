@@ -38,18 +38,17 @@ const SlidingImages = () => {
               <img src={process.env.PUBLIC_URL + `/assets/images/Slide${index}.jpg`} alt={`Slide-${index}`} />
             </div>
           ))}
-
-          <div className="navigation-auto">
-            <div className="auto-btn1"></div>
-            <div className="auto-btn2"></div>
-            <div className="auto-btn3"></div>
-          </div>
-          
-          <div className="navigation-manual">
-            {[1, 2, 3].map(index => (
-              <label key={index} htmlFor={`radio${index}`} className="manual-btn"></label>
-            ))}
-          </div>
+            <div className="navigation-auto">
+                <div className="auto-btn1"></div>
+                <div className="auto-btn2"></div>
+                <div className="auto-btn3"></div>
+              </div>
+              
+              <div className="navigation-manual">
+                {[1, 2, 3].map(index => (
+                  <label key={index} htmlFor={`radio${index}`} className="manual-btn"></label>
+                ))}
+              </div>
         </div>
       </div>
     </>

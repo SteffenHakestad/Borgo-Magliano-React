@@ -1,5 +1,6 @@
 
 import Navbar from "./Navbar.js";
+import MobileNavbar from "./MobileNavbar.js";
 import Home from "./pages/Home.js";
 import News from "./pages/News.js";
 import Events from "./pages/Events.js";
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <MobileNavbar />
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />

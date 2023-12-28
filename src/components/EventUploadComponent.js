@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 export default function UploadComponent({ UploadDescription }) {
   const [isPopupVisible, setPopupVisibility] = useState(false);
@@ -21,6 +21,11 @@ export default function UploadComponent({ UploadDescription }) {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setSelectedImage(file);
+  };
+
+  const fileInputRef = useRef(null);
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
   };
 
   const handleSubmit = (e) => {
@@ -78,13 +83,25 @@ export default function UploadComponent({ UploadDescription }) {
                 onChange={handleEventTextChange}
               />
               <label htmlFor="event-image">Velg bilde</label>
-              <input
-                type="file"
-                accept="image/*"
-                name="event-image"
-                id="event-image"
-                onChange={handleImageChange}
-              />
+              {/*Hidden file upload button*/}
+                
+                <input
+                  type="file"
+                  accept="image/*"
+                  name="event-image"
+                  id="event-image"
+                  style={{ display: "none" }}
+                  ref={fileInputRef}
+                  onChange={handleImageChange}
+                />
+
+              {/*Styled upload file button. Calls button above*/}
+              <button className="upload-image-button" type="button" onClick={handleButtonClick}>Last opp bilde</button>
+              {/*Gets the file text from the type="file" button*/}
+              <div className="selected-file-text">
+                  {selectedImage ? selectedImage.name : "Ingen fil valgt"}
+              </div>
+
               <div className="popup-btn-container">
                 <button className="popup-btn" onClick={togglePopup}>
                   Avbryt

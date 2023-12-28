@@ -11,8 +11,8 @@ export default function News() {
                 UploadDescription="Her kan du skrive nyhetsinnlegg (admin only)"
             />
             <NewsComponent
-                NewsTitle={"News Headline"}
-                NewsDescription={"News Text"}
+                NewsTitle={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+                NewsDescription={"Lorem ipsum dolor sit amet, Duis at tristique purus, nec tincidunt purus. Suspendisse potenti. Aliquam sodales dolor at diam tempus viverra. Praesent non lacinia lectus. Curabitur placerat volutpat ipsum ac mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin ultrices lorem et tempor lobortis. "}
             />
         </>
     );
