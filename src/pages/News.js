@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import NewsUploadComponent from '../components/NewsUploadComponent';
 import NewsComponent from '../components/NewsComponent';
+import { useTranslation } from 'react-i18next';
 
 
 
 export default function News() {
+    const { t } = useTranslation();
     const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
     const [isFailurePopupOpen, setFailurePopupOpen] = useState(false);
 
@@ -26,12 +28,13 @@ export default function News() {
 
     return (
         <>
-            <div className="header">Nyheter</div>
+            <div className="header">{t('news')}</div>
             {/* Component below should only be visible if you have an admin account. Normal account and not logged in users should not be able to see it */}
-            <NewsUploadComponent UploadDescription="Her kan du skrive nyhetsinnlegg (admin only)" />
+            {/* <NewsUploadComponent UploadDescription="" /> */}
+            <NewsUploadComponent UploadDescription={t('news-upload')} />
             <NewsComponent
                 NewsTitle={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-                NewsDescription={"Lorem ipsum dolor sit amet, Duis at tristique purus, nec tincidunt purus. Suspendisse potenti. Aliquam sodales dolor at diam tempus viverra. Praesent non lacinia lectus. Curabitur placerat volutpat ipsum ac mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin ultrices lorem et tempor lobortis. "}
+                // NewsDescription={"Lorem ipsum dolor sit amet, Duis at tristique purus, nec tincidunt purus. Suspendisse potenti. Aliquam sodales dolor at diam tempus viverra. Praesent non lacinia lectus. Curabitur placerat volutpat ipsum ac mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin ultrices lorem et tempor lobortis. "}
             />
             {/* Buttons below are temporary to trigger success and failure dialog boxes */}
             <div className='temp-btn-container'>

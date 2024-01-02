@@ -1,0 +1,17 @@
+{
+    "news": "Nyheter",
+    "events": "Arrangementer",
+    "gallery": "Galleri",
+    "blog": "Blogg",
+    "chat": "Chat",
+    "member": "Medlem",
+    "dashboard": "Dashboard",
+    "admin-dashboard": "Admin Dashboard",
+
+    "news-upload": "Her kan du skrive nyhetsinnlegg (admin only)",
+    "events-upload": "Her kan du legge til arrangementer (admin only)",
+    "gallery-upload": "Her kan du laste opp dine egne bilder og se bilder som andre gjester har publisert",
+    "blog-upload": "Her kan du laste opp dine egne blogginnlegg og se blogginnlegg som andre gjester har publisert"
+
+
+}

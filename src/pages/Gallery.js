@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import GalleryComponent from "../components/GalleryComponent";
 import GalleryUploadComponent from "../components/GalleryUploadComponent";
+import { useTranslation } from 'react-i18next';
+
 
 
 export default function Gallery() {
+    const { t } = useTranslation();
     const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
     const [isFailurePopupOpen, setFailurePopupOpen] = useState(false);
 
@@ -26,8 +29,8 @@ export default function Gallery() {
 
     return (
         <>
-        <div className="header">Galleri</div>
-        <GalleryUploadComponent UploadDescription="Her kan du laste opp dine egne bilder og se bilder som andre gjester har publisert"/>
+        <div className="header">{t('gallery')}</div>
+        <GalleryUploadComponent UploadDescription={t('gallery-upload')}/>
         <div className="gallery-container">
             <GalleryComponent ProfileName={"Ola Normann"}
                                 ProfilePicture={'/assets/images/TempProfilePic.png'}

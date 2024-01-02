@@ -1,18 +1,22 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import { useTranslation } from 'react-i18next';
+
 
 export default function Navbar() {
+    const { t } = useTranslation();
+
 
     return <nav id="navbar">
         {/*Links to home page from logo*/}
         <Link to="/home" id="navbar-title">Borgo Magliano</Link>
         {/*Links from navbar to all pages on app*/}
         <ul className="navbar-link-list">
-            <CustomLink to="/news" className="navbar-link">Nyheter</CustomLink>
-            <CustomLink to="/events" className="navbar-link">Eventer</CustomLink>
-            <CustomLink to="/gallery" className="navbar-link">Galleri</CustomLink>
-            <CustomLink to="/blog" className="navbar-link">Blogg</CustomLink>
-            <CustomLink to="/chat" className="navbar-link">Chat</CustomLink>
-            <CustomLink to="/member" className="navbar-link">Medlem</CustomLink>
+            <CustomLink to="/news" className="navbar-link">{t('news')}</CustomLink>
+            <CustomLink to="/events" className="navbar-link">{t('events')}</CustomLink>
+            <CustomLink to="/gallery" className="navbar-link">{t('gallery')}</CustomLink>
+            <CustomLink to="/blog" className="navbar-link">{t('blog')}</CustomLink>
+            <CustomLink to="/chat" className="navbar-link">{t('chat')}</CustomLink>
+            <CustomLink to="/member" className="navbar-link">{t('member')}</CustomLink>
             
             {/*
                 Navbar links to dashboard and admin dashboard. Should not be accessible from navbar
@@ -25,7 +29,7 @@ export default function Navbar() {
     </nav>
 }
 
-function CustomLink ({ to, children, ...props}) {
+function CustomLink ({ to, children, t, ...props}) {
     const resolvedPath = useResolvedPath(to)
     const isActive = useMatch({ path: resolvedPath.pathname, end: true })
     return (

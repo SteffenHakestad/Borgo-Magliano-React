@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 export default function UploadComponent({ UploadDescription }) {
+  const { t } = useTranslation();
   const [isPopupVisible, setPopupVisibility] = useState(false);
   const [headline, setHeadline] = useState("");
   const [newsText, setnewsText] = useState("");
@@ -43,7 +45,7 @@ export default function UploadComponent({ UploadDescription }) {
         <button className="upload-button" onClick={togglePopup}>
           <img src={process.env.PUBLIC_URL + "/assets/icons/UploadButton.png"} alt="Upload" />
         </button>
-        <p>{UploadDescription}</p>
+        <p>{t(UploadDescription)}</p>
       </div>
 
       {isPopupVisible && (

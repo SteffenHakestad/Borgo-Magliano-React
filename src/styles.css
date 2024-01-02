@@ -1199,5 +1199,20 @@ body{
     background: var(--pastel-gradient);
 } */
 /*End of success popup*/
+/*Start of Language Switch buttons*/
+.language-switch-container{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    right: 0;}
+.temp-button {
+
+    padding: .5rem;
+    font-size: 1rem;
+    color: red;
+    border: 1px solid red;
+  }
+/*End of Language Switch buttons*/
 
 /*End of multi page elements*/

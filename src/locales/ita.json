@@ -1,0 +1,21 @@
+
+{
+    "news": "Notizia",
+    "events": "Eventi",
+    "gallery": "Galleria",
+    "blog": "Blog",
+    "chat": "Chiacchierata",
+    "member": "Membro",
+    "dashboard": "Pannello di controllo",
+    "admin-dashboard": "Dashboard di amministrazione",
+
+    "news-upload": "Carica un articolo di notizie, visibile solo agli amministratori",
+    "events-upload": "Carica un evento, visibile solo agli amministratori",
+    "gallery-upload": "Qui puoi caricare le tue foto e vedere le foto pubblicate da altri ospiti",
+    "blog-upload": "Qui puoi caricare i post del tuo blog e vedere i post del blog pubblicati da altri ospiti"
+    
+
+
+
+
+}

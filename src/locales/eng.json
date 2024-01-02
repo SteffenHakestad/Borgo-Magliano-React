@@ -1,0 +1,15 @@
+{
+    "news": "News",
+    "events": "Events",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "chat": "Chat",
+    "member": "Member",
+    "dashboard": "Dashboard",
+    "admin-dashboard": "Admin Dashboard",
+
+    "news-upload": "Upload a news article, only visible to admins",
+    "events-upload": "Upload an event, only visible to admins",
+    "gallery-upload": "Here you can upload your own photos and see photos that other guests have published",
+    "blog-upload": "Here you can upload your own blog posts and see blog posts that other guests have published"
+}
