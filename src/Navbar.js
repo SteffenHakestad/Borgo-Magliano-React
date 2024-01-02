@@ -3,6 +3,7 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom"
 export default function Navbar() {
 
     return <nav id="navbar">
+        {/*Links to home page from logo*/}
         <Link to="/home" id="navbar-title">Borgo Magliano</Link>
         {/*Links from navbar to all pages on app*/}
         <ul className="navbar-link-list">
@@ -12,6 +13,14 @@ export default function Navbar() {
             <CustomLink to="/blog" className="navbar-link">Blogg</CustomLink>
             <CustomLink to="/chat" className="navbar-link">Chat</CustomLink>
             <CustomLink to="/member" className="navbar-link">Medlem</CustomLink>
+            
+            {/*
+                Navbar links to dashboard and admin dashboard. Should not be accessible from navbar
+                Do /dashboard or /admin in the url to access
+                <CustomLink to="/dashboard" className="navbar-link">(temp)Dashboard</CustomLink>
+                <CustomLink to="/admin" className="navbar-link">(temp)Admin Dashboard</CustomLink>
+            */}
+
         </ul>
     </nav>
 }

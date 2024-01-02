@@ -9,6 +9,7 @@ import Blog from "./pages/Blog.js";
 import Chat from "./pages/Chat.js";
 import Member from "./pages/Member.js";
 import Dashboard from "./pages/Dashboard.js";
+import AdminDashboard from "./pages/AdminDashboard.js";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/member" element={<Member />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </div>
     </>
