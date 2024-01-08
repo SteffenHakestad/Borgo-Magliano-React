@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import LoginComponent from "../components/LoginComponent"
 import RegisterComponent from "../components/RegisterComponent"
+import { useTranslation } from 'react-i18next';
+
 
 export default function Member() {
-    
     const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
     const [isFailurePopupOpen, setFailurePopupOpen] = useState(false);
+    const { t } = useTranslation();
 
     // Handle successful registration
     const handleSuccess = () => {
@@ -26,7 +28,7 @@ export default function Member() {
 
     return (
         <div>
-            <div className="header long-header">Logg inn / Registrer bruker</div>
+            <div className="header long-header">{t("login-register")}</div>
             <div id="login-register-container">
                 <LoginComponent/>
                 <RegisterComponent/>

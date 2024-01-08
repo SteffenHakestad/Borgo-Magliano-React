@@ -67,25 +67,25 @@ export default function UploadComponent({ UploadDescription }) {
         <div className="event-popup">
           <form onSubmit={handleSubmit}>
             <div className="event-popup-content">
-              <label htmlFor="event-headline">Overskrift</label>
+              <label htmlFor="event-headline">{t("headline")}</label>
               <input
                 type="text"
                 name="event-headline"
                 id="event-headline"
-                placeholder="Overskrift"
+                placeholder={t("headline")}
                 value={headline}
                 onChange={handleHeadlineChange}
               />
-              <label htmlFor="event-text">Event Beskrivelse</label>
+              <label htmlFor="event-text">{t("event-description")}</label>
               <textarea
                 type="text"
                 name="event-text"
                 id="event-text"
-                placeholder="Event Beskrivelse"
+                placeholder={t("event-description")}
                 value={eventText}
                 onChange={handleEventTextChange}
               />
-              <label htmlFor="event-image">Velg bilde</label>
+              <label htmlFor="event-image">{t("choose-image")}</label>
               {/*Hidden file upload button*/}
                 
                 <input
@@ -99,18 +99,18 @@ export default function UploadComponent({ UploadDescription }) {
                 />
 
               {/*Styled upload file button. Calls button above*/}
-              <button className="upload-image-button" type="button" onClick={handleButtonClick}>Last opp bilde</button>
+              <button className="upload-image-button" type="button" onClick={handleButtonClick}>{t("upload-image")}</button>
               {/*Gets the file text from the type="file" button*/}
               <div className="selected-file-text">
-                  {selectedImage ? selectedImage.name : "Ingen fil valgt"}
+                  {selectedImage ? selectedImage.name : t("event-description")}
               </div>
 
               <div className="popup-btn-container">
                 <button className="popup-btn" onClick={togglePopup}>
-                  Avbryt
+                {t("cancel")}
                 </button>
                 <button type="submit" className="popup-btn">
-                  Publiser
+                {t("publish")}
                 </button>
               </div>
             </div>

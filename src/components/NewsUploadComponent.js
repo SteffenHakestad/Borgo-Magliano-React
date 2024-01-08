@@ -52,30 +52,30 @@ export default function UploadComponent({ UploadDescription }) {
         <div className="news-popup">
           <form onSubmit={handleSubmit}>
             <div className="news-popup-content">
-              <label htmlFor="news-headline">Overskrift</label>
+              <label htmlFor="news-headline">{t("headline")}</label>
               <input
                 type="text"
                 name="news-headline"
                 id="news-headline"
-                placeholder="Overskrift"
+                placeholder={t("headline")}
                 value={headline}
                 onChange={handleHeadlineChange}
               />
-              <label htmlFor="news-text">Nyhetsinnlegg</label>
+              <label htmlFor="news-text">{t("news-text")}</label>
               <textarea
                 type="text"
                 name="news-text"
                 id="news-text"
-                placeholder="Nyhetsinnlegg"
+                placeholder={t("news-text")}
                 value={newsText}
                 onChange={handlenewsTextChange}
               />
               <div className="popup-btn-container">
                 <button className="popup-btn" onClick={togglePopup}>
-                  Avbryt
+                {t("cancel")}
                 </button>
                 <button type="submit" className="popup-btn">
-                  Publiser
+                {t("publish")}
                 </button>
               </div>
             </div>

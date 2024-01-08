@@ -53,7 +53,7 @@ export default function UploadComponent({ UploadDescription }) {
         <div className="event-popup">
           <form onSubmit={handleSubmit}>
             <div className="event-popup-content">
-              <label htmlFor="event-image">Velg bilde</label>
+              <label htmlFor="event-image">{t("choose-image")}</label>
               {/*Hidden file upload button*/}
               <input
                 type="file"
@@ -66,18 +66,18 @@ export default function UploadComponent({ UploadDescription }) {
 
               />
               {/*Styled upload file button. Calls button above*/}
-              <button className="upload-image-button" type="button" onClick={handleButtonClick}>Last opp bilde</button>
+              <button className="upload-image-button" type="button" onClick={handleButtonClick}>{t("upload-image")}</button>
               {/*Gets the file text from the type="file" button*/}
               <div className="selected-file-text">
-                  {selectedImage ? selectedImage.name : "Ingen fil valgt"}
+                  {selectedImage ? selectedImage.name : t("no-file-chosen")}
               </div>
 
               <div className="popup-btn-container">
                 <button className="popup-btn" type="button" onClick={togglePopup}>
-                  Avbryt
+                {t("cancel")}
                 </button>
                 <button type="submit" className="popup-btn">
-                  Publiser
+                {t("publish")}
                 </button>
               </div>
             </div>

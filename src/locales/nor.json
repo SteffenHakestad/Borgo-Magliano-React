@@ -11,7 +11,34 @@
     "news-upload": "Her kan du skrive nyhetsinnlegg (admin only)",
     "events-upload": "Her kan du legge til arrangementer (admin only)",
     "gallery-upload": "Her kan du laste opp dine egne bilder og se bilder som andre gjester har publisert",
-    "blog-upload": "Her kan du laste opp dine egne blogginnlegg og se blogginnlegg som andre gjester har publisert"
+    "blog-upload": "Her kan du laste opp dine egne blogginnlegg og se blogginnlegg som andre gjester har publisert",
+    
+    "headline": "Overskrift",
+    "news-text": "Nyhetsinnlegg",
+    "blog-text": "Blogg innlegg",
+
+    "event-description": "Beskrivelse av arrangementet",
+    "choose-image": "Velg bilde",
+    "upload-image": "Last opp bilde",
+    "no-file-chosen": "Ingen fil valgt",
+
+    "publish": "Publiser",
+    "cancel": "Avbryt",
+    
+    "login-register": "Logg inn / Register bruker",
+    
+    "login": "Logg inn",
+    "become-member": "Bli Medlem",
+    "email": "E-post",
+    "example-email": "Eksempel@gmail.com",
+    "password": "Passord",
+    "confirm-password": "Gjenta Passord",
+    "full-name": "Fullt Navn",
+    "example-full-name": "Ola Nordmann",
+
+    
+    "change-language": "Bytt språk"
+
 
 
 }

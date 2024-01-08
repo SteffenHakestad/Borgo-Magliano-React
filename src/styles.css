@@ -1205,7 +1205,33 @@ body{
     flex-direction: column;
     position: fixed;
     bottom: 0;
-    right: 0;}
+    right: 0;
+    background-color: var(--pastel-green);
+    margin-right: .5rem;
+}
+.language-btn {
+    max-width: 100px;
+    max-height: 50px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+}
+.toggle-language-btn{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: var(--pastel-green);
+    color: var(--primary-gray);
+    border: 1px solid var(--primary-gray);
+    border-radius: .2rem;
+    padding: .5rem;
+    font-size: 1rem;
+    margin: .1rem;
+    cursor: pointer;
+}
 .temp-button {
 
     padding: .5rem;

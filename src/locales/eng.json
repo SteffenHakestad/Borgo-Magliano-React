@@ -11,5 +11,31 @@
     "news-upload": "Upload a news article, only visible to admins",
     "events-upload": "Upload an event, only visible to admins",
     "gallery-upload": "Here you can upload your own photos and see photos that other guests have published",
-    "blog-upload": "Here you can upload your own blog posts and see blog posts that other guests have published"
+    "blog-upload": "Here you can upload your own blog posts and see blog posts that other guests have published",
+    
+    "headline": "Headline",
+    "news-text": "News text",
+    "blog-text": "Blog text",
+
+    "event-description": "Event description",
+    "choose-image": "Choose image",
+    "upload-image": "Upload image",
+    "no-file-chosen": "No file chosen",
+
+    "publish": "Publish",
+    "cancel": "Cancel",
+    
+    "login-register": "Log in / Register user",
+    
+    "login": "Log in",
+    "become-member": "Become a member",
+    "email": "Email",
+    "example-email": "Example@gmail.com",
+    "password": "Password",
+    "confirm-password": "Confirm password",
+    "full-name": "Full name",
+    "example-full-name": "John Doe",
+    
+    
+    "change-language": "Change language"
 }
