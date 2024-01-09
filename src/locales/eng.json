@@ -36,6 +36,21 @@
     "full-name": "Full name",
     "example-full-name": "John Doe",
     
-    
-    "change-language": "Change language"
+    "change-language": "Change language",
+
+    "news-success": "News article successfully uploaded",
+    "news-failure": "News article failed to upload",
+
+    "event-success": "Event successfully uploaded",
+    "event-failure": "Event failed to upload",
+
+    "gallery-success": "Photo successfully uploaded to gallery",
+    "gallery-failure": "Photo failed to upload",
+
+    "blog-success": "Blog post successfully uploaded",
+    "blog-failure": "Blog post failed to upload",
+
+    "member-success1": "Your membership application has been sent to an administrator",
+    "member-success2": "When it is approved, you will be able to upload photos and upload blog posts.",
+    "member-failure": "Membership application failed to send"
 }

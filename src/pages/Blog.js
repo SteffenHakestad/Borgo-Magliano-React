@@ -54,7 +54,7 @@ export default function Blog() {
                             <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
                         </button>
                     </div>
-                    <p>Opplastning av blogg innlegg vellykket</p>
+                    <p>{t('blog-success')}</p>
                 </div>
             </div>
         )}
@@ -68,7 +68,7 @@ export default function Blog() {
                             <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
                         </button>
                     </div>
-                    <p>Opplastning av blogg innlegg mislyktes</p>
+                    <p>{t('blog-failure')}</p>
                 </div>
             </div>
         )}

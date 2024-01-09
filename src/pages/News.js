@@ -30,11 +30,10 @@ export default function News() {
         <>
             <div className="header">{t('news')}</div>
             {/* Component below should only be visible if you have an admin account. Normal account and not logged in users should not be able to see it */}
-            {/* <NewsUploadComponent UploadDescription="" /> */}
             <NewsUploadComponent UploadDescription={t('news-upload')} />
             <NewsComponent
                 NewsTitle={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-                // NewsDescription={"Lorem ipsum dolor sit amet, Duis at tristique purus, nec tincidunt purus. Suspendisse potenti. Aliquam sodales dolor at diam tempus viverra. Praesent non lacinia lectus. Curabitur placerat volutpat ipsum ac mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin ultrices lorem et tempor lobortis. "}
+                NewsDescription={"Lorem ipsum dolor sit amet, Duis at tristique purus, nec tincidunt purus. Suspendisse potenti. Aliquam sodales dolor at diam tempus viverra. Praesent non lacinia lectus. Curabitur placerat volutpat ipsum ac mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin ultrices lorem et tempor lobortis. "}
             />
             {/* Buttons below are temporary to trigger success and failure dialog boxes */}
             <div className='temp-btn-container'>
@@ -52,7 +51,7 @@ export default function News() {
                                 <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
                             </button>
                         </div>
-                        <p>Nyhetsinnlegg opplasting vellykket</p>
+                        <p>{t('news-success')}</p>
                     </div>
                 </div>
             )}
@@ -66,7 +65,7 @@ export default function News() {
                                 <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
                             </button>
                         </div>
-                        <p>Nyhetsinnlegg opplasting mislyktes</p>
+                        <p>{t('news-failure')}</p>
                     </div>
                 </div>
             )}

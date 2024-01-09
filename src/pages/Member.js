@@ -50,8 +50,8 @@ export default function Member() {
                             <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
                         </button>
                     </div>
-                    <p>Din forespørsel om medlemskap er videresendt til administrator</p>
-                    <p>Når den blir godkjent vil du kunne logge inn og laste opp bilder og skrive blogg innlegg</p>
+                    <p>{t('member-success1')}</p>
+                    <p>{t('member-success2')}</p>
                 </div>
             </div>
         )}
@@ -65,7 +65,7 @@ export default function Member() {
                             <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
                         </button>
                     </div>
-                    <p>Registrering av medlemskap mislyktes</p>
+                    <p>{t('member-failure')}</p>
                 </div>
             </div>
         )}

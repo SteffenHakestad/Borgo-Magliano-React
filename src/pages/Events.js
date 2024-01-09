@@ -54,7 +54,7 @@ export default function Events() {
                             <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
                         </button>
                     </div>
-                    <p>Event opplasting vellykket</p>
+                    <p>{t('event-success')}</p>
                 </div>
             </div>
         )}
@@ -68,7 +68,7 @@ export default function Events() {
                             <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
                         </button>
                     </div>
-                    <p>Event opplasting mislyktes</p>
+                    <p>{t('event-failure')}</p>
                 </div>
             </div>
         )}

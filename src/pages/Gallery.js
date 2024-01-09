@@ -61,7 +61,7 @@ export default function Gallery() {
                             <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
                         </button>
                     </div>
-                    <p>Bilde opplasting til galleri vellykket</p>
+                    <p>{t('gallery-success')}</p>
                 </div>
             </div>
         )}
@@ -75,7 +75,7 @@ export default function Gallery() {
                             <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
                         </button>
                     </div>
-                    <p>Bilde opplasting til galleri mislyktes</p>
+                    <p>{t('gallery-failure')}</p>
                 </div>
             </div>
         )}
