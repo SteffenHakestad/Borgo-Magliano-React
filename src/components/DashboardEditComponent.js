@@ -54,6 +54,7 @@ export default function DashboardEditComponent({ onExitEdit, PathToProfilePic })
           />
           {selectedFileName && <div>Selected File: {selectedFileName}</div>}
         </div>
+        div className="dashboard-edit-divider"
 
         <div className="dashboard-name-container">
           <img className="dashboard-user-info-img" src={process.env.PUBLIC_URL + "/assets/icons/ProfileIcon.svg"} alt="Profile-Icon" />

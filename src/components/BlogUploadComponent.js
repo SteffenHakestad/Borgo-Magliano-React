@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { useTranslation } from 'react-i18next';
+
 
 export default function UploadComponent({ UploadDescription }) {
+  const { t } = useTranslation();
   const [isPopupVisible, setPopupVisibility] = useState(false);
   const [headline, setHeadline] = useState("");
   const [blogText, setblogText] = useState("");
@@ -16,6 +19,11 @@ export default function UploadComponent({ UploadDescription }) {
 
   const handleblogTextChange = (e) => {
     setblogText(e.target.value);
+  };
+
+  const fileInputRef = useRef(null);
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
   };
 
   const handleImageChange = (e) => {
@@ -50,45 +58,55 @@ export default function UploadComponent({ UploadDescription }) {
         <button className="upload-button" onClick={togglePopup}>
           <img src={process.env.PUBLIC_URL + "/assets/icons/UploadButton.png"} alt="Upload" />
         </button>
-        <p>{UploadDescription}</p>
+        <p>{t(UploadDescription)}</p>
       </div>
 
       {isPopupVisible && (
         <div className="blog-popup">
           <form onSubmit={handleSubmit}>
             <div className="blog-popup-content">
-              <label htmlFor="blog-headline">Overskrift</label>
+              <label htmlFor="blog-headline">{t("headline")}</label>
               <input
                 type="text"
                 name="blog-headline"
                 id="blog-headline"
-                placeholder="Overskrift"
+                placeholder={t("headline")}
                 value={headline}
                 onChange={handleHeadlineChange}
               />
-              <label htmlFor="blog-text">Blogg innlegg</label>
+              <label htmlFor="blog-text">{t("blog-text")}</label>
               <textarea
                 type="text"
                 name="blog-text"
                 id="blog-text"
-                placeholder="Blogg innlegg"
+                placeholder={t("blog-text")}
                 value={blogText}
                 onChange={handleblogTextChange}
               />
-              <label htmlFor="blog-image">Velg bilde</label>
+              <label htmlFor="blog-image">{t("choose-image")}</label>
               <input
                 type="file"
                 accept="image/*"
                 name="blog-image"
                 id="blog-image"
                 onChange={handleImageChange}
+                style={{ display: "none" }}
+                ref={fileInputRef}
               />
+
+              {/*Styled upload file button. Calls button above*/}
+              <button className="upload-image-button" type="button" onClick={handleButtonClick}>{t("upload-image")}</button>
+              {/*Gets the file text from the type="file" button*/}
+              <div className="selected-file-text">
+                  {selectedImage ? selectedImage.name : t("no-file-chosen")}
+              </div>
+
               <div className="popup-btn-container">
                 <button className="popup-btn" onClick={togglePopup}>
-                  Avbryt
+                {t("cancel")}
                 </button>
                 <button type="submit" className="popup-btn">
-                  Publiser
+                {t("publish")}
                 </button>
               </div>
             </div>

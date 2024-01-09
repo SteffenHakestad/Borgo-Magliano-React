@@ -10,9 +10,12 @@ export default function NewsComponent({ NewsTitle, NewsDescription }) {
                     <Linkify>{NewsTitle}</Linkify>
                 </h1>
             </div>
-            <p>
-                <Linkify>{NewsDescription}</Linkify>
-            </p>
+            <div className='news-text-background'>
+                <p>
+                    <Linkify>{NewsDescription}</Linkify>
+                </p>
+            </div>
+
         </div>
     );
 }
