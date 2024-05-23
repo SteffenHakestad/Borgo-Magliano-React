@@ -1,22 +1,22 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
-import { useTranslation } from 'react-i18next';
 
 
 export default function Navbar() {
-    const { t } = useTranslation();
 
 
     return <nav id="navbar">
         {/*Links to home page from logo*/}
-        <Link to="/home" id="navbar-title">Borgo Magliano</Link>
+        <Link to="/home" id="navbar-title">God Trening</Link>
         {/*Links from navbar to all pages on app*/}
         <ul className="navbar-link-list">
-            <CustomLink to="/news" className="navbar-link">{t('news')}</CustomLink>
-            <CustomLink to="/events" className="navbar-link">{t('events')}</CustomLink>
-            <CustomLink to="/gallery" className="navbar-link">{t('gallery')}</CustomLink>
-            <CustomLink to="/blog" className="navbar-link">{t('blog')}</CustomLink>
-            <CustomLink to="/chat" className="navbar-link">{t('chat')}</CustomLink>
-            <CustomLink to="/member" className="navbar-link">{t('member')}</CustomLink>
+            <CustomLink to="/home" className="navbar-link">Home*</CustomLink>
+            <CustomLink to="/services" className="navbar-link">Tjenester</CustomLink>
+            <CustomLink to="/media" className="navbar-link">Media</CustomLink>
+            <CustomLink to="/contact" className="navbar-link">Kontakt</CustomLink>
+            <CustomLink to="/admin" className="navbar-link">Admin*</CustomLink>
+
+
+
             
             {/*
                 Navbar links to dashboard and admin dashboard. Should not be accessible from navbar
@@ -38,21 +38,24 @@ function CustomLink ({ to, children, t, ...props}) {
         </li>
     )
 }
-//Function to detect if the page is scrolled.
-window.onscroll = function() {
-    scrollFunction();
-};
-//If the page is scrolled, the navbar will shrink and the font size will decrease.
-function scrollFunction() {
-  var scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
-  if (scrollPosition > 90) {
-    document.getElementById("navbar").style.height = "5rem";
-    document.getElementById("navbar-title").style.fontSize = "4rem";
-  } else {
-    document.getElementById("navbar").style.height = "7rem";
-    document.getElementById("navbar-title").style.fontSize = "5.5rem";
-  }
-}
+
+
+
+// //Function to detect if the page is scrolled.
+// window.onscroll = function() {
+//     scrollFunction();
+// };
+// //If the page is scrolled, the navbar will shrink and the font size will decrease.
+// function scrollFunction() {
+//   var scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
+//   if (scrollPosition > 90) {
+//     document.getElementById("navbar").style.height = "5rem";
+//     document.getElementById("navbar-title").style.fontSize = "4rem";
+//   } else {
+//     document.getElementById("navbar").style.height = "7rem";
+//     document.getElementById("navbar-title").style.fontSize = "5.5rem";
+//   }
+// }
 
 
 
