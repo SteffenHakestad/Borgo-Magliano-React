@@ -1,0 +1,62 @@
+
+{
+    "news": "Notizia",
+    "events": "Eventi",
+    "gallery": "Galleria",
+    "blog": "Blog",
+    "chat": "Chiacchierata",
+    "member": "Membro",
+    "dashboard": "Pannello di controllo",
+    "admin-dashboard": "Dashboard di amministrazione",
+
+    "news-upload": "Carica un articolo di notizie, visibile solo agli amministratori",
+    "events-upload": "Carica un evento, visibile solo agli amministratori",
+    "gallery-upload": "Qui puoi caricare le tue foto e vedere le foto pubblicate da altri ospiti",
+    "blog-upload": "Qui puoi caricare i post del tuo blog e vedere i post del blog pubblicati da altri ospiti",
+    
+    "headline": "Titolo",
+    "news-text": "Testo della notizia",
+    "blog-text": "Testo del blog",
+
+    "event-description": "Descrizione dell'evento",
+    "choose-image": "Scegli l'immagine",
+    "upload-image": "Carica immagine",
+    "no-file-chosen": "Nessun file scelto",
+
+    "publish": "Pubblicare",
+    "cancel": "Annulla",
+    
+    "login-register": "Accedi / Registra utente",
+    
+    "login": "Log in",
+    "become-member": "Diventare membro",
+    "email": "Email",
+    "example-email": "Esempio@gmail.com",
+    "password": "Parola d'ordine",
+    "confirm-password": "Conferma password",
+    "full-name": "Nome e cognome",
+    "example-full-name": "Paolo Bianchi",
+
+    "change-language": "Cambia lingua",
+
+    "news-success": "Articolo di notizie caricato con successo",
+    "news-failure": "Impossibile caricare l'articolo di notizie",
+
+    "event-success": "Evento caricato con successo",
+    "event-failure": "Impossibile caricare l'evento",
+
+    "gallery-success": "Foto caricata con successo nella galleria",
+    "gallery-failure": "Impossibile caricare la foto",
+
+    "blog-success": "Post del blog caricato con successo",
+    "blog-failure": "Impossibile caricare il post del blog",
+
+    "member-success1": "La tua richiesta di adesione è stata inviata a un amministratore",
+    "member-success2": "Una volta approvato, sarai in grado di caricare foto e caricare post sul blog",
+    "member-failure": "Impossibile inviare la richiesta di adesione"
+    
+
+
+
+
+}
