@@ -1,0 +1,56 @@
+{
+    "news": "News",
+    "events": "Events",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "chat": "Chat",
+    "member": "Member",
+    "dashboard": "Dashboard",
+    "admin-dashboard": "Admin Dashboard",
+
+    "news-upload": "Upload a news article, only visible to admins",
+    "events-upload": "Upload an event, only visible to admins",
+    "gallery-upload": "Here you can upload your own photos and see photos that other guests have published",
+    "blog-upload": "Here you can upload your own blog posts and see blog posts that other guests have published",
+    
+    "headline": "Headline",
+    "news-text": "News text",
+    "blog-text": "Blog text",
+
+    "event-description": "Event description",
+    "choose-image": "Choose image",
+    "upload-image": "Upload image",
+    "no-file-chosen": "No file chosen",
+
+    "publish": "Publish",
+    "cancel": "Cancel",
+    
+    "login-register": "Log in / Register user",
+    
+    "login": "Log in",
+    "become-member": "Become a member",
+    "email": "Email",
+    "example-email": "Example@gmail.com",
+    "password": "Password",
+    "confirm-password": "Confirm password",
+    "full-name": "Full name",
+    "example-full-name": "John Doe",
+    
+    "change-language": "Change language",
+
+    "news-success": "News article successfully uploaded",
+    "news-failure": "News article failed to upload",
+
+    "event-success": "Event successfully uploaded",
+    "event-failure": "Event failed to upload",
+
+    "gallery-success": "Photo successfully uploaded to gallery",
+    "gallery-failure": "Photo failed to upload",
+
+    "blog-success": "Blog post successfully uploaded",
+    "blog-failure": "Blog post failed to upload",
+
+    "member-success1": "Your membership application has been sent to an administrator",
+    "member-success2": "When it is approved, you will be able to upload photos and upload blog posts.",
+    "member-failure": "Membership application failed to send"
+}
