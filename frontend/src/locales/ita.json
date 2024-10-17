@@ -8,9 +8,11 @@
     "member": "Membro",
     "dashboard": "Pannello di controllo",
     "admin-dashboard": "Dashboard di amministrazione",
+    "my-profile" : "Il mio profilo",
 
-    "news-upload": "Carica un articolo di notizie, visibile solo agli amministratori",
-    "events-upload": "Carica un evento, visibile solo agli amministratori",
+
+    "news-upload": "Carica un articolo di notizie, solo gli amministratori possono caricare notizie",
+    "events-upload": "Carica un evento, solo gli amministratori possono caricare eventi",
     "gallery-upload": "Qui puoi caricare le tue foto e vedere le foto pubblicate da altri ospiti",
     "blog-upload": "Qui puoi caricare i post del tuo blog e vedere i post del blog pubblicati da altri ospiti",
     

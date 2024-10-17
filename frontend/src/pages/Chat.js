@@ -1,16 +1,12 @@
-import ChatComponent from '../components/ChatComponent';
-import { useTranslation } from 'react-i18next';
-
+import ChatComponent from "../components/ChatComponent";
+import HeaderComponent from "../components/HeaderComponent";
 
 export default function Chat() {
-    const { t } = useTranslation();
-    return (
-    <>
-            <div className="header">{t('chat')}</div>
-            <ChatComponent
-            
-            />
-    </>
+	return (
+		<>
+			<HeaderComponent HeaderName={"chat"} />
 
-    )
+			<ChatComponent />
+		</>
+	);
 }

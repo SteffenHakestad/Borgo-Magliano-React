@@ -7,9 +7,10 @@
     "member": "Member",
     "dashboard": "Dashboard",
     "admin-dashboard": "Admin Dashboard",
+    "my-profile" : "My Profile",
 
-    "news-upload": "Upload a news article, only visible to admins",
-    "events-upload": "Upload an event, only visible to admins",
+    "news-upload": "Upload a news article, only admins can upload news",
+    "events-upload": "Upload an event, only admins can upload events",
     "gallery-upload": "Here you can upload your own photos and see photos that other guests have published",
     "blog-upload": "Here you can upload your own blog posts and see blog posts that other guests have published",
     

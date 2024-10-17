@@ -1,11 +1,10 @@
-import React, {} from "react";
-
+import React from "react";
+import HeaderComponent from "../components/HeaderComponent";
 
 export default function AdminDashboard() {
-
-  return (
-    <>
-      <div className="header">Admin Dashboard</div>
-    </>
-  );
+	return (
+		<>
+			<HeaderComponent HeaderName={"admin-dashboard"} />
+		</>
+	);
 }

@@ -1,115 +1,37 @@
-import React, { useState } from 'react';
-import NewsUploadComponent from '../components/NewsUploadComponent';
-import NewsComponent from '../components/NewsComponent';
-import { useTranslation } from 'react-i18next';
-
-
+import React, { useState, useEffect } from "react";
+import NewsUploadComponent from "../components/NewsUploadComponent";
+import NewsComponent from "../components/NewsComponent";
+import { useTranslation } from "react-i18next";
+import HeaderComponent from "../components/HeaderComponent";
 
 export default function News() {
-    const { t } = useTranslation();
-    const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
-    const [isFailurePopupOpen, setFailurePopupOpen] = useState(false);
+	const { t } = useTranslation();
+	const [posts, setPosts] = useState([]);
 
-    // Handle successful registration
-    const handleSuccess = () => {
-        setSuccessPopupOpen(true);
-    };
+	useEffect(() => {
+		// Fetch data from the backend
+		fetch("/api/news-posts")
+			.then((response) => response.json())
+			.then((data) => setPosts(data))
+			.catch((error) => console.error("Error fetching data:", error));
+	}, []);
 
-    // Handle failed registration
-    const handleFailure = () => {
-        setFailurePopupOpen(true);
-    };
+	return (
+		<>
+			<HeaderComponent HeaderName={"news"} />
+			{/* Component below should only be visible if you have an admin account. Normal account and not logged in users should not be able to see it */}
+			<NewsUploadComponent UploadDescription={t("news-upload")} />
 
-    // Close popup overlay
-    const handlePopupClose = () => {
-        setSuccessPopupOpen(false);
-        setFailurePopupOpen(false);
-    };
-
-    return (
-        <>
-            <div className="header">{t('news')}</div>
-            {/* Component below should only be visible if you have an admin account. Normal account and not logged in users should not be able to see it */}
-            <NewsUploadComponent UploadDescription={t('news-upload')} />
-            <NewsComponent
-                NewsTitle={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-                NewsDescription={"Lorem ipsum dolor sit amet, Duis at tristique purus, nec tincidunt purus. Suspendisse potenti. Aliquam sodales dolor at diam tempus viverra. Praesent non lacinia lectus. Curabitur placerat volutpat ipsum ac mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin ultrices lorem et tempor lobortis. "}
-            />
-            {/* Buttons below are temporary to trigger success and failure dialog boxes */}
-            <div className='temp-btn-container'>
-                <button onClick={handleSuccess} className='temp-button'>Submit news success<br></br>Temp. News.js</button>
-                <button onClick={handleFailure} className='temp-button'>Submit news failure<br></br>Temp. News.js</button>
-            </div>
-
-
-            {/* Success Popup */}
-            {isSuccessPopupOpen && (
-                <div className="success-failure-popup-overlay">
-                    <div className="success-failure-container">
-                        <div className='close-success-failure-popup-btn-container' style={{background: "#D3F2EA"}}>
-                            <button className="close-success-failure-popup-btn" onClick={handlePopupClose}>
-                                <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
-                            </button>
-                        </div>
-                        <p>{t('news-success')}</p>
-                    </div>
-                </div>
-            )}
-
-            {/* Failure Popup */}
-            {isFailurePopupOpen && (
-                <div className="success-failure-popup-overlay">
-                    <div className="success-failure-container">
-                        <div className='close-success-failure-popup-btn-container' style={{background: "#FFCFC2"}}>
-                            <button className="close-success-failure-popup-btn" onClick={handlePopupClose}>
-                                <img className="edit-img" src={process.env.PUBLIC_URL + "/assets/icons/ExitIcon.svg"} alt="Exit-Icon" />
-                            </button>
-                        </div>
-                        <p>{t('news-failure')}</p>
-                    </div>
-                </div>
-            )}
-        </>
-    );
+			{/*Create a new NewsComponent for every post*/}
+			{posts.map((post) => (
+				<NewsComponent
+					key={post._id}
+					newsHeadline={post.newsHeadline}
+					newsText={post.newsText}
+					newsImagePath={post.newsImage}
+					createdAt={post.createdAt}
+				/>
+			))}
+		</>
+	);
 }
-
-
-
-
-// 
-// This has to be reworked. I used localstorage to save the data, but it's not a solution that works with backend Db
-// export default function News() {
-//     const [newsData, setNewsData] = useState(() => {
-//         // Load data from localStorage when the component is first mounted
-//         const storedData = localStorage.getItem('newsData');
-//         return storedData ? JSON.parse(storedData) : null;
-//     });
-//     const handleNewsSubmit = (headline, newsText) => {
-//         // Update the state with the submitted data
-//         const newData = { NewsTitle: headline, NewsDescription: newsText };
-//         setNewsData(newData);
-//         // Store data in localStorage for persistence
-//         localStorage.setItem('newsData', JSON.stringify(newData));
-//     };
-
-//     useEffect(() => {
-//         // Cleanup localStorage when the component is unmounted
-//         return () => {
-//             localStorage.removeItem('newsData');
-//         };
-//     }, []); // Empty dependency array ensures this effect runs only once, similar to componentDidMount
-
-
-
-// import NewsComponent from "../components/NewsComponent";
-// import UploadComponent from "../components/UploadComponent";
-
-// export default function News() {
-//     return (
-//         <>
-//         <div className="header">Nyheter</div>
-//         <UploadComponent UploadDescription="Her kan du skrive nyhetsinnlegg (admin only)" BtnFunc={() => console.log("hello")}/>
-//         <NewsComponent NewsTitle={"headline user input text here"} NewsDescription={"News text user input here"}/>
-//         </>
-//     )
-// }

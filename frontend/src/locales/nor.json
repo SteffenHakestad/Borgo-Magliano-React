@@ -7,6 +7,8 @@
     "member": "Medlem",
     "dashboard": "Dashboard",
     "admin-dashboard": "Admin Dashboard",
+    "my-profile" : "Min Profil",
+
 
     "news-upload": "Her kan du skrive nyhetsinnlegg (admin only)",
     "events-upload": "Her kan du legge til arrangementer (admin only)",

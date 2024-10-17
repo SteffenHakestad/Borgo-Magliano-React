@@ -1,62 +1,75 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom"
-import { useTranslation } from 'react-i18next';
-
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
-    const { t } = useTranslation();
+	const { t } = useTranslation();
 
+	return (
+		<nav id="navbar">
+			{/*Links to home page from logo*/}
+			<Link to="/home" id="navbar-title">
+				Borgo Magliano
+			</Link>
+			{/*Links from navbar to all pages on app*/}
+			<ul className="navbar-link-list">
+				<CustomLink to="/news" className="navbar-link">
+					{t("news")}
+				</CustomLink>
+				<CustomLink to="/events" className="navbar-link">
+					{t("events")}
+				</CustomLink>
+				<CustomLink to="/gallery" className="navbar-link">
+					{t("gallery")}
+				</CustomLink>
+				<CustomLink to="/blog" className="navbar-link">
+					{t("blog")}
+				</CustomLink>
+				{/* <CustomLink to="/chat" className="navbar-link">{t('chat')}</CustomLink> */}
+				<CustomLink to="/member" className="navbar-link">
+					{t("member")}
+				</CustomLink>
 
-    return <nav id="navbar">
-        {/*Links to home page from logo*/}
-        <Link to="/home" id="navbar-title">Borgo Magliano</Link>
-        {/*Links from navbar to all pages on app*/}
-        <ul className="navbar-link-list">
-            <CustomLink to="/news" className="navbar-link">{t('news')}</CustomLink>
-            <CustomLink to="/events" className="navbar-link">{t('events')}</CustomLink>
-            <CustomLink to="/gallery" className="navbar-link">{t('gallery')}</CustomLink>
-            <CustomLink to="/blog" className="navbar-link">{t('blog')}</CustomLink>
-            <CustomLink to="/chat" className="navbar-link">{t('chat')}</CustomLink>
-            <CustomLink to="/member" className="navbar-link">{t('member')}</CustomLink>
-            
-            {/*
+				{/*
                 Navbar links to dashboard and admin dashboard. Should not be accessible from navbar
                 Do /dashboard or /admin in the url to access
                 <CustomLink to="/dashboard" className="navbar-link">(temp)Dashboard</CustomLink>
                 <CustomLink to="/admin" className="navbar-link">(temp)Admin Dashboard</CustomLink>
             */}
-
-        </ul>
-    </nav>
+			</ul>
+		</nav>
+	);
 }
 
-function CustomLink ({ to, children, t, ...props}) {
-    const resolvedPath = useResolvedPath(to)
-    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-    return (
-        <li className={isActive ? "active" : ""}>
-            <Link to={to} {...props}>{children}</Link>
-        </li>
-    )
+function CustomLink({ to, children, t, ...props }) {
+	const resolvedPath = useResolvedPath(to);
+	const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+	return (
+		<li>
+			<Link
+				to={to}
+				{...props}
+				className={`navbar-link ${isActive ? "active" : ""}`}>
+				{children}
+			</Link>
+		</li>
+	);
 }
 //Function to detect if the page is scrolled.
-window.onscroll = function() {
-    scrollFunction();
+window.onscroll = function () {
+	scrollFunction();
 };
 //If the page is scrolled, the navbar will shrink and the font size will decrease.
 function scrollFunction() {
-  var scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
-  if (scrollPosition > 90) {
-    document.getElementById("navbar").style.height = "5rem";
-    document.getElementById("navbar-title").style.fontSize = "4rem";
-  } else {
-    document.getElementById("navbar").style.height = "7rem";
-    document.getElementById("navbar-title").style.fontSize = "5.5rem";
-  }
+	var scrollPosition =
+		document.body.scrollTop || document.documentElement.scrollTop;
+	if (scrollPosition > 90) {
+		document.getElementById("navbar").style.height = "5rem";
+		document.getElementById("navbar-title").style.fontSize = "4rem";
+	} else {
+		document.getElementById("navbar").style.height = "7rem";
+		document.getElementById("navbar-title").style.fontSize = "5.5rem";
+	}
 }
-
-
-
-
 
 //Below code was used to toggle between mobile and desktop navbar. Too much weird stuff happened, so I made one full size navbar and one mobile navbar.
 
@@ -115,16 +128,14 @@ function scrollFunction() {
 // window.onscroll = function() {
 //     scrollFunction();
 // };
-  
+
 // Set the original font size in rem
 //var originalFontSize = 5.5;
-
-
 
 // function applyFontSize() {
 //   // Calculate the font size based on resolution
 //   var newSize = calculateFontSize();
-  
+
 //   // Apply the calculated font size to the element
 //   document.getElementById("navbar-title").style.fontSize = newSize + "rem";
 // }
@@ -153,13 +164,11 @@ function scrollFunction() {
 //   }
 // }
 
-  
 // vvvv This is a link to dashboard page. Should not be accessible from the navbar, but is here for testing purposes
 //<CustomLink to="/dashboard" className="navbar-link">(temp)Dashboard</CustomLink>
 
 //Function to detect if the page is scrolled.
 //If the page is scrolled, the navbar will shrink and the font size will decrease.
-
 
 // This was used to set font size based on resolution.
 // function calculateFontSize() {
