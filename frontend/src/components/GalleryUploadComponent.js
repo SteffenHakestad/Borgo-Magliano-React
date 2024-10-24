@@ -213,3 +213,24 @@ export default function UploadComponent({ UploadDescription }) {
 		</>
 	);
 }
+
+
+
+// preview-upload-image-container
+
+// .upload-profile-pic-btn{
+//     position: relative;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius: 50%;
+//     border: none;
+//     cursor: pointer;
+//     background-color: transparent;
+//     width: 120px;
+//     height: 120px;
+// }
+// .upload-profile-pic-btn img{
+//     width: 100%;
+//     height: 100%;
+// }

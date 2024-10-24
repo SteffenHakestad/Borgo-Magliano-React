@@ -691,8 +691,8 @@ body{
     margin: 1.5rem;
 }
 
-#blog-image{
-    margin: 1rem 0rem 0rem 1rem;
+.blog-image{
+    margin: 1rem;
     border-radius: 1rem;
     max-width: fit-content;
     max-height: fit-content;
@@ -968,6 +968,7 @@ body{
 #password-input,
 #repeat-password-input,
 #email-input,
+#phone-input,
 #full-name-input,
 #li-email-input,
 #li-password-input{
@@ -1018,6 +1019,9 @@ body{
     padding: 0rem 2rem 0rem 2rem;
     color: var(--primary-gray);
 }
+.upload-profile-pic-container{
+    display: flex;
+}
 #upload-profile-pic-container{
     display: flex;
     flex-direction: column;
@@ -1037,6 +1041,7 @@ body{
     height: 120px;
 }
 .upload-profile-pic-btn img{
+
     width: 100%;
     height: 100%;
 }
@@ -1057,6 +1062,10 @@ body{
     transition: .5s;
 }
 .dashboard-inner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 20rem;
 }
 .dashboard-name-container,
@@ -1064,7 +1073,7 @@ body{
 .dashboard-phone-container,
 .dashboard-address-container{
     display: flex;
-    justify-content: center;
+    text-align: right;
     margin-top: 1rem;
 }
 .dashboard-user-info-text{
@@ -1103,8 +1112,49 @@ body{
 .profile-pic-container{
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
 }
+
+.preview-dashboard-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    background-color: var(--pastel-green);
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+
+
+
+
+}
+
+.preview-dashboard-image{
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--primary-gray)
+}
+
+#cancel-profilepic-hover{
+    object-fit: fill;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.preview-dashboard-image-container:hover #cancel-profilepic-hover{
+    opacity: 1;
+    transition: .5s;
+}
+
 /*End of Dashboard page*/
 
 
@@ -1236,7 +1286,6 @@ body{
 }
 .upload-image-btn-container{
     display: flex;
-    gap: 1rem;
 }
 .upload-image-button{
     display: flex;

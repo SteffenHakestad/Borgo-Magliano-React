@@ -13,40 +13,41 @@ import AdminDashboard from "./pages/AdminDashboard.js";
 import LanguageSwitcher from "./components/LanguageSwitcher.js";
 
 import { Route, Routes } from "react-router-dom";
-import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n';
+import { I18nextProvider } from "react-i18next";
+import i18n from "./i18n";
+
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.withCredentials = true;
 
 function App() {
-  return (
-    <I18nextProvider i18n={i18n}>
-      <>
-        <Navbar />
-        <MobileNavbar />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/member" element={<Member />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-          </Routes>
-        </div>
-        <LanguageSwitcher />
-      </>
-    </I18nextProvider>
-  );
+	return (
+		<I18nextProvider i18n={i18n}>
+			<>
+				<Navbar />
+				<MobileNavbar />
+				<div className="container">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/home" element={<Home />} />
+						<Route path="/news" element={<News />} />
+						<Route path="/events" element={<Events />} />
+						<Route path="/gallery" element={<Gallery />} />
+						<Route path="/blog" element={<Blog />} />
+						<Route path="/chat" element={<Chat />} />
+						<Route path="/member" element={<Member />} />
+						<Route path="/dashboard" element={<Dashboard />} />
+						<Route path="/admin" element={<AdminDashboard />} />
+					</Routes>
+				</div>
+				<LanguageSwitcher />
+			</>
+		</I18nextProvider>
+	);
 }
 
 export default App;
-
-
-
-
 
 //OLD CODE, Keep for now
 // function App() {
@@ -77,7 +78,6 @@ export default App;
 //     default:
 //       Component = <Home/>
 
-      
 //   }
 //   return (
 //     <>

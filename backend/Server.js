@@ -23,6 +23,7 @@ if (!fs.existsSync(uploadsDir)) {
 app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static(uploadsDir));
+app.use("/", require("./routes/authRoutes"));
 
 // Multer configuration
 const storage = multer.diskStorage({

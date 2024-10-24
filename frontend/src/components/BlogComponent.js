@@ -30,7 +30,6 @@ export default function BlogComponent({
 					</div>
 				</div>
 				<h1 className="blog-headline"> {BlogHeadline}</h1>
-				<div className="event-divider"></div>
 				<Linkify>
 					<p className="blog-text">{BlogText}</p>
 				</Linkify>
