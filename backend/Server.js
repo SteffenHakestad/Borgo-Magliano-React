@@ -5,6 +5,7 @@ const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 dotenv.config();
@@ -23,6 +24,9 @@ if (!fs.existsSync(uploadsDir)) {
 app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static(uploadsDir));
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+
 app.use("/", require("./routes/authRoutes"));
 
 // Multer configuration

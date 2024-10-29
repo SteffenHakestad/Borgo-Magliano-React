@@ -2,11 +2,12 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 //import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 export default function RegisterComponent() {
 	const { t } = useTranslation();
 	const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
-	const [isFailurePopupOpen, setFailurePopupOpen] = useState(false);
+	// const [isFailurePopupOpen, setFailurePopupOpen] = useState(false);
 	// const navigate = useNavigate();
 	const [data, setData] = useState({
 		name: "",
@@ -22,23 +23,22 @@ export default function RegisterComponent() {
 	};
 
 	// Handle failed registration
-	const handleFailure = () => {
-		setFailurePopupOpen(true);
-	};
+	// const handleFailure = () => {
+	// 	setFailurePopupOpen(true);
+	// };
 
 	// Close popup overlay
 	const handlePopupClose = () => {
 		setSuccessPopupOpen(false);
-		setFailurePopupOpen(false);
+		// setFailurePopupOpen(false);
+		// window.location.reload();
 	};
 
 	const registerUser = async (e) => {
 		e.preventDefault();
 		const { name, email, phone, password, repeatPassword } = data;
 		try {
-			// const {data} = await axios.post("/member", {
-
-			await axios.post("/member", {
+			const response = await axios.post("/register", {
 				name,
 				email,
 				phone,
@@ -46,19 +46,26 @@ export default function RegisterComponent() {
 				repeatPassword,
 			});
 
-			if (data.error) {
-				console.log("Error in data object " + data.error);
-				handleFailure();
+			// Check if the server responded with an error
+			if (response.data.error) {
+				toast.error(response.data.error);
 			} else {
-				console.log("Registration sucessful");
-				// navigate("/member")
+				// Reset form fields on success
+				setData({
+					name: "",
+					email: "",
+					phone: "",
+					password: "",
+					repeatPassword: "",
+				});
+				toast.success("Registration Successful");
 				handleSuccess();
 			}
 		} catch (error) {
 			console.log("Error in RegisterComponent: " + error);
-			handleFailure();
 		}
 	};
+
 	return (
 		<>
 			<div id="register-container">
@@ -72,7 +79,6 @@ export default function RegisterComponent() {
 							name="full-name-input"
 							id="full-name-input"
 							placeholder={t("example-full-name")}
-							required
 							value={data.name}
 							onChange={(e) =>
 								setData({ ...data, name: e.target.value })
@@ -86,7 +92,6 @@ export default function RegisterComponent() {
 							name="email-input"
 							id="email-input"
 							placeholder={t("example-email")}
-							required
 							value={data.email}
 							onChange={(e) =>
 								setData({ ...data, email: e.target.value })
@@ -101,7 +106,6 @@ export default function RegisterComponent() {
 							name="phone-input"
 							id="phone-input"
 							placeholder={t("example-phone")}
-							required
 							value={data.phone}
 							onChange={(e) =>
 								setData({ ...data, phone: e.target.value })
@@ -116,7 +120,6 @@ export default function RegisterComponent() {
 							name="password-input"
 							id="password-input"
 							placeholder={t("password")}
-							required
 							value={data.password}
 							onChange={(e) =>
 								setData({ ...data, password: e.target.value })
@@ -132,7 +135,6 @@ export default function RegisterComponent() {
 							name="repeat-password-input"
 							id="repeat-password-input"
 							placeholder={t("confirm-password")}
-							required
 							value={data.repeatPassword}
 							onChange={(e) =>
 								setData({ ...data, repeatPassword: e.target.value })
@@ -171,7 +173,7 @@ export default function RegisterComponent() {
 			)}
 
 			{/* Failure Popup */}
-			{isFailurePopupOpen && (
+			{/* {isFailurePopupOpen && (
 				<div
 					className="success-failure-popup-overlay"
 					onClick={handlePopupClose}>
@@ -192,7 +194,7 @@ export default function RegisterComponent() {
 						<p>{t("member-failure")}</p>
 					</div>
 				</div>
-			)}
+			)} */}
 		</>
 	);
 }

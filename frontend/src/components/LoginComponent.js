@@ -2,11 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 export default function LoginComponent() {
 	const { t } = useTranslation();
-	const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
-	const [isFailurePopupOpen, setFailurePopupOpen] = useState(false);
+	// const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
+	// const [isFailurePopupOpen, setFailurePopupOpen] = useState(false);
 	const navigate = useNavigate();
 
 	const [data, setData] = useState({
@@ -15,43 +16,50 @@ export default function LoginComponent() {
 	});
 
 	// Handle successful login
-	const handleSuccess = () => {
-		setSuccessPopupOpen(true);
-	};
+	// const handleSuccess = () => {
+	// 	setSuccessPopupOpen(true);
+	// };
 
 	// Handle failed login
-	const handleFailure = () => {
-		setFailurePopupOpen(true);
-	};
+	// const handleFailure = () => {
+	// 	setFailurePopupOpen(true);
+	// };
 
 	// Close popup overlay
-	const handlePopupClose = () => {
-		setSuccessPopupOpen(false);
-		setFailurePopupOpen(false);
-	};
+	// const handlePopupClose = () => {
+	// 	setSuccessPopupOpen(false);
+	// 	setFailurePopupOpen(false);
+	// };
 
 	const loginUser = async (e) => {
 		e.preventDefault();
 		const { email, password } = data;
 		try {
-			// const {data} = await axios.post("/member", {
+			// const {data} = await axios.post("/login", {
 
-			await axios.post("/member", {
+			const response = await axios.post("/login", {
 				email,
 				password,
 			});
 
-			if (data.error) {
-				console.log("Error in data object " + data.error);
-				handleFailure();
+			if (response.data.error) {
+				toast.error(response.data.error);
+				// handleFailure();
 			} else {
 				console.log("login sucessful");
+				// Reset form fields on success
+				setData({
+					email: "",
+					password: "",
+				});
 				navigate("/dashboard");
+				toast.success("Login Successful");
+
 				// handleSuccess();
 			}
 		} catch (error) {
 			console.log("Error in LoginComponent: " + error);
-			handleFailure();
+			// handleFailure();
 		}
 	};
 

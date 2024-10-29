@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const { hashPassword, comparePassword } = require("../helpers/auth");
+const jwt = require("jsonwebtoken");
 
 //Registration Endpoint
 const registerUser = async (req, res) => {
@@ -42,6 +43,18 @@ const registerUser = async (req, res) => {
 				error: "A user with that email already exists(T)",
 			});
 		}
+		//Check if phone was entered
+		if (!phone) {
+			return res.json({
+				error: "Phone number is required(T)",
+			});
+		}
+		if (phone.length < 4) {
+			return res.json({
+				error:
+					"Phone number is too short. Please enter a valid phone number(T)",
+			});
+		}
 		//Check if phone number is acceptable and not taken
 		const phoneExists = await User.findOne({ phone });
 		if (phoneExists) {
@@ -50,6 +63,7 @@ const registerUser = async (req, res) => {
 			});
 		}
 
+		//Hash the password from data
 		const hashedPassword = await hashPassword(password);
 
 		//Create user in DB
@@ -92,7 +106,17 @@ const loginUser = async (req, res) => {
 		const match = await comparePassword(password, user.password);
 		if (match) {
 			//Cookie for you
-			res.json("Passwords match");
+			console.log("cookie for you");
+			jwt.sign(
+				{ email: user.email, name: user.name, phone: user.phone, id: user._id },
+				process.env.jwt_secret,
+				{},
+				(err, token) => {
+					if (err) throw err;
+					res.cookie("token", token).json(user);
+				}
+			);
+			// res.json("Passwords match");
 		} else {
 			res.json({
 				error: "Wrong Password",
@@ -103,7 +127,21 @@ const loginUser = async (req, res) => {
 	}
 };
 
+// Get profile endpoint
+const getProfile = (req, res) => {
+	const { token } = req.cookies;
+	if (token) {
+		jwt.verify(token, process.env.jwt_secret, {}, (err, user) => {
+			if (err) throw err;
+			res.json(user);
+		});
+	} else {
+		res.json(null);
+	}
+};
+
 module.exports = {
 	registerUser,
 	loginUser,
+	getProfile,
 };
