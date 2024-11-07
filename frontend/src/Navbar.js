@@ -1,8 +1,11 @@
+import { useContext } from "react";
+import { UserContext } from "./context/UserContext";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
 	const { t } = useTranslation();
+	const { user } = useContext(UserContext);
 
 	return (
 		<nav id="navbar">
@@ -25,10 +28,15 @@ export default function Navbar() {
 					{t("blog")}
 				</CustomLink>
 				{/* <CustomLink to="/chat" className="navbar-link">{t('chat')}</CustomLink> */}
-				<CustomLink to="/member" className="navbar-link">
-					{t("member")}
-				</CustomLink>
-
+				{user ? (
+					<CustomLink to="/dashboard" className="navbar-link">
+						{t("dashboard")}
+					</CustomLink>
+				) : (
+					<CustomLink to="/member" className="navbar-link">
+						{t("member")}
+					</CustomLink>
+				)}
 				{/*
                 Navbar links to dashboard and admin dashboard. Should not be accessible from navbar
                 Do /dashboard or /admin in the url to access

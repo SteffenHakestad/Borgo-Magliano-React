@@ -12,8 +12,11 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		unique: true,
 	},
+	address: String,
+	profilePic: String,
 	password: String,
 	repeatPassword: String,
+	createdAt: { type: Date, default: Date.now },
 });
 const UserModel = mongoose.model("User", userSchema);
 

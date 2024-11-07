@@ -1,20 +1,24 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 export default function DashboardEditComponent({
 	onExitEdit,
 	PathToProfilePic,
 }) {
+	const { user } = useContext(UserContext);
 	const fileInputRef = useRef(null);
 	const previewContainer = useRef(null);
 	const uploadProfilePicBtn = useRef(null);
 
-	//State for input and file upload fields
-	const [fullName, setFullName] = useState("");
-	const [phoneNumber, setPhoneNumber] = useState("");
-	const [address, setAddress] = useState("");
+	// State for input and file upload fields
+	const [fullName, setFullName] = useState(user.name || "");
+	const [phoneNumber, setPhoneNumber] = useState(user.phone || "");
+	const [address, setAddress] = useState(user.address || "");
 	const [selectedImage, setSelectedImage] = useState(null);
 
-	//State for image preview
+	// State for image preview
 	const [previewUrl, setPreviewUrl] = useState(null);
 
 	const handleButtonClick = () => {
@@ -24,7 +28,6 @@ export default function DashboardEditComponent({
 	const handleImageChange = (e) => {
 		const file = e.target.files[0];
 		setSelectedImage(file);
-
 		if (file) {
 			previewContainer.current.style.display = "flex";
 			const url = URL.createObjectURL(file);
@@ -33,29 +36,43 @@ export default function DashboardEditComponent({
 		}
 	};
 
-	//Function to remove seleceted image and hide the image preview
-	const removeSelectedImage = () => {
-		setSelectedImage(null);
-		setPreviewUrl(null);
-		previewContainer.current.style.display = "none";
-		uploadProfilePicBtn.current.style.display = "flex";
-	};
+	// Function to remove selected image and hide the image preview
+	// const removeSelectedImage = () => {
+	// 	setSelectedImage(null);
+	// 	setPreviewUrl(null);
+	// 	previewContainer.current.style.display = "none";
+	// 	uploadProfilePicBtn.current.style.display = "flex";
+	// };
 
-	const handleSubmit = (e) => {
-		e.preventDefault(); // Prevent the default form submission behavior
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		// Prepare form data, including the image if selected
+		const formData = new FormData();
+		formData.append("name", fullName);
+		formData.append("phone", phoneNumber);
+		formData.append("address", address);
+		if (selectedImage) {
+			formData.append("profilePic", selectedImage);
+		}
 
-		// Gather all the form data and send it to the backend.
-		const dashboardEditFormData = new FormData();
-		dashboardEditFormData.append(
-			"profile-pic-file",
-			fileInputRef.current.files[0]
-		);
-		dashboardEditFormData.append("fullName", fullName);
-		dashboardEditFormData.append("phoneNumber", phoneNumber);
-		dashboardEditFormData.append("address", address);
-
-		// For now, log the form data to the console, replace this with API call to backend.
-		console.log("Form Data:", dashboardEditFormData);
+		try {
+			const response = await axios.post("/update-profile", formData, {
+				headers: {
+					"Content-Type": "multipart/form-data",
+					Authorization: `Bearer ${user.token}`,
+				},
+			});
+			// Check if there's an error in the response data
+			if (response.data.error) {
+				toast.error(response.data.error);
+			} else {
+				toast.success("Profile updated successfully!");
+				onExitEdit(); // Call the exit function to close the edit form
+			}
+		} catch (error) {
+			console.error("Error updating profile:", error);
+			toast.error("Failed to update profile.");
+		}
 	};
 
 	return (
@@ -73,9 +90,9 @@ export default function DashboardEditComponent({
 				className="dashboard-edit-form"
 				encType="multipart/form-data"
 				onSubmit={handleSubmit}>
-				{/* //Profile Pic container */}
+				{/* Profile Pic container */}
 				<div className="profile-pic-container">
-					{/*Hidden file upload button*/}
+					{/* Hidden file upload button */}
 					<input
 						ref={fileInputRef}
 						id="file-input-button"
@@ -85,53 +102,46 @@ export default function DashboardEditComponent({
 						onChange={handleImageChange}
 					/>
 					<div className="upload-profile-pic-container">
-						{/*Styled upload file button. Calls button above*/}
+						{/* Styled upload file button. Calls button above */}
 						<button
 							type="button"
 							ref={uploadProfilePicBtn}
 							className="upload-profile-pic-btn"
 							onClick={handleButtonClick}>
-							<img
-								src={process.env.PUBLIC_URL + PathToProfilePic}
-								alt="Profile-Pic"
-							/>
-							<img
-								id="edit-profilepic-hover"
-								src={
-									process.env.PUBLIC_URL + "/assets/icons/EditProfilePic.png"
-								}
-								alt="Edit-Icon"
-							/>
+							<div className="profile-pic-frame">
+								<img
+									src={process.env.PUBLIC_URL + PathToProfilePic}
+									alt="Profile-Pic"
+								/>
+								<img
+									id="edit-profilepic-hover"
+									src={
+										process.env.PUBLIC_URL + "/assets/icons/EditProfilePic.png"
+									}
+									alt="Edit-Icon"
+								/>
+							</div>
 						</button>
-
 						<div
 							className="preview-dashboard-image-container"
 							ref={previewContainer}
 							style={{ display: "none" }}>
 							{previewUrl && (
-								<img
-									src={previewUrl}
-									className="preview-dashboard-image"
-									alt="Preview"
-									onClick={removeSelectedImage}
-								/>
+								<div className="profile-pic-frame">
+									<img
+										src={previewUrl}
+										className="preview-dashboard-image"
+										alt="Preview"
+									/>
+								</div>
 							)}
-							<img
-								id="cancel-profilepic-hover"
-								src={
-									process.env.PUBLIC_URL +
-									"/assets/icons/CancelEditProfilePic.png"
-								}
-								alt="Edit-Icon"
-							/>
 						</div>
 					</div>
-					{/*Gets the file text from the type="file" button*/}
+					{/* Gets the file text from the type="file" button */}
 					<div className="selected-file-text">
 						{selectedImage ? selectedImage.name : "\u200B"}
 					</div>
 				</div>
-
 				<div className="dashboard-name-container">
 					<img
 						className="dashboard-user-info-img"
@@ -141,7 +151,7 @@ export default function DashboardEditComponent({
 					<input
 						id="dashboard-name-input"
 						className="dashboard-input"
-						placeholder="Fullt Navn"
+						placeholder={user.name}
 						value={fullName}
 						onChange={(e) => setFullName(e.target.value)}
 					/>
@@ -155,7 +165,7 @@ export default function DashboardEditComponent({
 					<input
 						id="dashboard-phone-input"
 						className="dashboard-input"
-						placeholder="Telefon nummer"
+						placeholder={user.phone}
 						value={phoneNumber}
 						onChange={(e) => setPhoneNumber(e.target.value)}
 					/>

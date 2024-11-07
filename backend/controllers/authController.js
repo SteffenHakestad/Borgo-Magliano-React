@@ -5,7 +5,16 @@ const jwt = require("jsonwebtoken");
 //Registration Endpoint
 const registerUser = async (req, res) => {
 	try {
-		const { name, email, phone, password, repeatPassword } = req.body;
+		const {
+			name,
+			email,
+			phone,
+			address,
+			password,
+			profilePic,
+			repeatPassword,
+		} = req.body;
+
 		//Check if name was entered
 		if (!name) {
 			return res.json({
@@ -71,6 +80,8 @@ const registerUser = async (req, res) => {
 			name,
 			email,
 			phone,
+			address: "",
+			profilePic: "",
 			password: hashedPassword,
 		});
 		return res.json(user);
@@ -106,7 +117,6 @@ const loginUser = async (req, res) => {
 		const match = await comparePassword(password, user.password);
 		if (match) {
 			//Cookie for you
-			console.log("cookie for you");
 			jwt.sign(
 				{ email: user.email, name: user.name, phone: user.phone, id: user._id },
 				process.env.jwt_secret,
@@ -126,22 +136,84 @@ const loginUser = async (req, res) => {
 		console.log("AutController Error: " + error);
 	}
 };
+//Logout endpoint
+const logoutUser = (req, res) => {
+	res.clearCookie("token").json({ message: "User logged out successfully" });
+};
+
+//Update Profile Endpoint
+const updateProfile = async (req, res) => {
+	try {
+		const userId = req.user.id;
+		const { name, phone, address } = req.body;
+
+		// console.log("Received data:", { name, phone, address });
+		// console.log("Received file:", req.file);
+
+		const updateData = {
+			...(name && { name }),
+			...(phone && { phone }),
+			...(address && { address }),
+		};
+
+		// If the user selected an image handle it
+		if (req.file) {
+			updateData.profilePic = `/uploads/${req.file.filename}`;
+		}
+
+		//Check if phone number is acceptable and not taken (by a different user) current user can update the DB with an already existing number as long as it's that user's number.
+		const phoneExists = await User.findOne({ phone });
+		if (phoneExists && phoneExists._id.toString() !== userId) {
+			return res.json({
+				error: "A user with that number already exists(T)",
+			});
+		} else if (phoneExists && phoneExists._id.toString() === userId) {
+			console.log("The phone number exists but belongs to current user.");
+		}
+		const updatedUser = await User.findByIdAndUpdate(userId, updateData, {
+			new: true,
+		});
+		res.json(updatedUser);
+	} catch (error) {
+		console.error("Error updating profile:", error);
+		res.status(500).json({ error: "Failed to update profile" });
+	}
+};
 
 // Get profile endpoint
 const getProfile = (req, res) => {
 	const { token } = req.cookies;
+
 	if (token) {
-		jwt.verify(token, process.env.jwt_secret, {}, (err, user) => {
-			if (err) throw err;
-			res.json(user);
+		jwt.verify(token, process.env.jwt_secret, {}, async (err, decoded) => {
+			if (err) {
+				console.error("Token verification error:", err);
+				return res.status(403).json({ error: "Unauthorized" });
+			}
+
+			try {
+				// Fetch the full user data using the decoded user ID
+				const user = await User.findById(decoded.id);
+				if (!user) {
+					return res.status(404).json({ error: "User not found" });
+				}
+
+				// Return the full user data
+				res.json(user);
+			} catch (error) {
+				console.error("Error fetching user profile:", error);
+				res.status(500).json({ error: "Failed to retrieve profile data" });
+			}
 		});
 	} else {
-		res.json(null);
+		res.status(401).json({ error: "No token provided" });
 	}
 };
 
 module.exports = {
 	registerUser,
 	loginUser,
+	logoutUser,
 	getProfile,
+	updateProfile,
 };

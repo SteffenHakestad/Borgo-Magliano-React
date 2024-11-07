@@ -176,10 +176,10 @@ input[type=number] {
     }
 }
 @media (max-width: 880px){
-
-    #navbar-title{
-        font-size: 1rem;
-    }
+ 
+    #navbar-title {
+            font-size: 3.5rem;
+        }
     .navbar-link{
         font-size: 1.3rem;
     }
@@ -1027,25 +1027,34 @@ input[type=number] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     padding: 0rem 2rem 0rem 2rem;
     color: var(--primary-gray);
 }
+
 .upload-profile-pic-container{
-    display: flex;
-}
-#upload-profile-pic-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.profile-pic-frame{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--pastel-green);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 5px 10px 0px rgba(0, 0, 0, 0.75);
 }
 .upload-profile-pic-btn{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
     border: none;
     cursor: pointer;
     background-color: transparent;
@@ -1053,16 +1062,14 @@ input[type=number] {
     height: 120px;
 }
 .upload-profile-pic-btn img{
-
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 120px;
 }
 #edit-profilepic-hover{
     object-fit: fill;
-    top: 10px;
     position: absolute;
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     background-color: var(--pastel-green);
     pointer-events: none;
     border-radius: 50%;
@@ -1128,6 +1135,13 @@ input[type=number] {
     flex-direction: column;
     width: 100%;
 }
+.profile-pic-container img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px var(--primary-gray);
+}
 
 .preview-dashboard-image-container{
     display: flex;
@@ -1138,10 +1152,6 @@ input[type=number] {
     background-color: var(--pastel-green);
     border-radius: 50%;
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-
-
-
-
 }
 
 .preview-dashboard-image{
@@ -1166,12 +1176,19 @@ input[type=number] {
     opacity: 1;
     transition: .5s;
 }
+.selected-file-text{
+    margin-top: .5rem;
+}
 #not-logged-in-container{
     color: var(--primary-gray);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+.logout-btn{
+    background-color: var(--pastel-red);
+    margin-top: 2rem;
 }
 /*End of Dashboard page*/
 

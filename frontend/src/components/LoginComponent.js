@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 import { toast } from "react-hot-toast";
 
 export default function LoginComponent() {
 	const { t } = useTranslation();
+	const { setUser } = useContext(UserContext);
+
 	// const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
 	// const [isFailurePopupOpen, setFailurePopupOpen] = useState(false);
 	const navigate = useNavigate();
@@ -48,12 +51,14 @@ export default function LoginComponent() {
 			} else {
 				console.log("login sucessful");
 				// Reset form fields on success
+				setUser(data.user);
 				setData({
 					email: "",
 					password: "",
 				});
 				navigate("/dashboard");
 				toast.success("Login Successful");
+				window.location.reload();
 
 				// handleSuccess();
 			}
