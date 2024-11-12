@@ -25,9 +25,13 @@ export function UserContextProvider({ children }) {
 					setUser(data);
 				})
 				.catch((error) => {
-					// If error occurs, clear user state
-					console.error("Error fetching profile:", error);
-					setUser(null); // Reset user to null if unauthorized or error occurs
+					if (error.code === "ECONNABORTED") {
+						console.error("Request Timed Out: ", error);
+					} else {
+						console.error("Error fetching profile:", error);
+						// If error occurs, clear user state
+						setUser(null); // Reset user to null if unauthorized or error occurs
+					}
 				});
 		}
 	}, [user]);

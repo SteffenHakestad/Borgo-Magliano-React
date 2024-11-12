@@ -1186,6 +1186,9 @@ input[type=number] {
     align-items: center;
     flex-direction: column;
 }
+.logout-container{
+    display: none;
+}
 .logout-btn{
     background-color: var(--pastel-red);
     margin-top: 2rem;

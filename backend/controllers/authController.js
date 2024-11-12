@@ -123,7 +123,11 @@ const loginUser = async (req, res) => {
 				{},
 				(err, token) => {
 					if (err) throw err;
-					res.cookie("token", token).json(user);
+					res
+						.cookie("token", token, {
+							sameSite: "Lax", // or "Lax" if cross-site requests are not needed
+						})
+						.json(user);
 				}
 			);
 			// res.json("Passwords match");
@@ -138,7 +142,11 @@ const loginUser = async (req, res) => {
 };
 //Logout endpoint
 const logoutUser = (req, res) => {
-	res.clearCookie("token").json({ message: "User logged out successfully" });
+	res
+		.clearCookie("token", {
+			sameSite: "Lax", // or "Lax" if cross-site requests are not needed
+		})
+		.json({ message: "User logged out successfully" });
 };
 
 //Update Profile Endpoint

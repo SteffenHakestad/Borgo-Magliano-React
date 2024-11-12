@@ -20,8 +20,9 @@ import { Route, Routes } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n";
 
+//import Axios and set up some default parameters
 import axios from "axios";
-
+axios.defaults.timeout = 5000;
 axios.defaults.baseURL = "http://localhost:3000";
 axios.defaults.withCredentials = true;
 

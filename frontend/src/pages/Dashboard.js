@@ -13,6 +13,14 @@ export default function Dashboard() {
 	const { user, setUser } = useContext(UserContext);
 	const [isEditing, setIsEditing] = useState(false);
 
+	useEffect(() => {
+		console.log("Dashboard component mounted");
+
+		return () => {
+			console.log("Dashboard component unmounted");
+		};
+	}, []);
+
 	const handleEditClick = async () => {
 		if (isEditing) {
 			// Fetch the latest user data when exiting the edit mode
@@ -28,18 +36,20 @@ export default function Dashboard() {
 
 	// Fetch the latest user data when the component mounts
 	useEffect(() => {
-		const fetchUserData = async () => {
-			try {
-				const response = await axios.get("/profile");
-				setUser(response.data);
-				//console.log("User data:", response.data);
-			} catch (error) {
-				console.error("Error fetching user data:", error);
-			}
-		};
-
-		fetchUserData();
-	}, [setUser]);
+		console.log("User state: ", user);
+		if (!user) {
+			// Fetch only if user data isn't set
+			const fetchUserData = async () => {
+				try {
+					const response = await axios.get("/profile");
+					setUser(response.data);
+				} catch (error) {
+					console.error("Error fetching user data:", error);
+				}
+			};
+			fetchUserData();
+		}
+	}, [user, setUser]);
 
 	const handleLogoutPopup = (e) => {
 		if (e === "close") {
@@ -87,15 +97,17 @@ export default function Dashboard() {
 							}
 						/>
 					)}
-					<button className="std-btn" onClick={handleLogoutPopup("open")}>
+					<button className="std-btn" onClick={() => handleLogoutPopup("open")}>
 						Log out(T)
 					</button>
-					<div className="logout-container">
+					<div className="logout-container" useRef={logoutContainer}>
 						<h1>Are you sure you want to log out (T)</h1>
-						<button className="logout-btn std-btn" onClick={handleLogOut}>
+						<button className="logout-btn std-btn" onClick={() => handleLogOut}>
 							Log out(T)
 						</button>
-						<button className="std-btn" onClick={handleLogoutPopup("close")}>
+						<button
+							className="std-btn"
+							onClick={() => handleLogoutPopup("close")}>
 							No(T)
 						</button>
 					</div>
